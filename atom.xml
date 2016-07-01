@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>怪蜀黍的编程随想</title>
+  <subtitle>一只不断学习的渣</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://github.com/ChengLuffy/chengluffy.github.io/"/>
+  <updated>2016-07-01T17:09:34.000Z</updated>
+  <id>https://github.com/ChengLuffy/chengluffy.github.io/</id>
+  
+  <author>
+    <name>成璐飞</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怪蜀黍的编程日记</title>
+    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
+    <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/编程日记/</id>
+    <published>2016-07-01T16:30:08.000Z</published>
+    <updated>2016-07-01T17:09:34.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;并不是要成为海贼王的路飞；&lt;br&gt;&lt;img src=&quot;https://github.com/ChengLuffy/chengluffy.github.io/blob/master/Sources/Dream.png?raw=true&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/AnimationForShoppingCart&quot;&gt;AnimationForShoppingCart&lt;/a&gt; 学习iOS开发是对CA动画的实践项目，&lt;code&gt;Object-C&lt;/code&gt;代码，同时制作了&lt;code&gt;cocoaPods&lt;/code&gt;轮子。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation&quot;&gt;RefreshControl-ImageViewAnimation&lt;/a&gt; &lt;code&gt;Swift&lt;/code&gt;学习初实践。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/StarsForEvaluation&quot;&gt;StarsForEvaluation&lt;/a&gt; &lt;code&gt;Object-C&lt;/code&gt;实现触摸或输入给予星评，实习工作时的项目需要。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/UITableViewCellAutoHeight&quot;&gt;UITableViewCellAutoHeight&lt;/a&gt; &lt;code&gt;Object-C&lt;/code&gt;代码，同样是实习工作时项目需要。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot;&gt;ShadowsocksFree&lt;/a&gt; &lt;code&gt;Swift&lt;/code&gt;实践项目，有感于搬瓦工的不稳定性，从&lt;a href=&quot;http://www.ishadowsocks.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ishadowsocks&lt;/a&gt; 获取限时免费的&lt;strong&gt;SS&lt;/strong&gt;账号度过不稳定期。同时作为&lt;code&gt;Swift&lt;/code&gt;第一个实践项目，尽可能的完善相关功能，属于账号归档工具。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/Popover&quot;&gt;Popover&lt;/a&gt; Fork自&lt;a href=&quot;https://github.com/corin8823/Popover&quot;&gt;corin8823/Popover&lt;/a&gt; 应用到&lt;code&gt;ShadowsocksFress&lt;/code&gt;项目中，并作相应的本地化适应。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;并不是要成为海贼王的路飞；&lt;br&gt;&lt;img src=&quot;https://github.com/ChengLuffy/chengluffy.github.io/blob/master/Sources/Dream.png?raw=true&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
