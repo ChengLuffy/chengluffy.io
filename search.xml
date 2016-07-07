@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[代码配置IBAnimatable转场动画]]></title>
+      <url>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/</url>
+      <content type="html"><![CDATA[<p><a href="https://github.com/JakeLin/IBAnimatable">IBAnimatable</a> 是由 <a href="https://github.com/JakeLin">JakeLin</a> 在Github上开源的动画开源库，在学习 <code>Swift</code> 时曾经在练手项目 <a href="https://github.com/ChengLuffy/ShadowsocksFree">ShadowsocksFree</a> 中学习使用过，其最吸引我的是可以在 <code>StoryBoard</code> 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 <code>API</code> 介绍，最后通过阅读源码实现效果，总结如下。</p>
+<a id="more"></a>
+<p>文章基于 <code>IBAnimatable 2.3</code> 。</p>
+<p>在成功导入后，<code>StoryBoard</code> 的转场动画就可以配置，所以源码一定是对 <code>UIStoryboardSegue</code> 进行了继承自定义。在 <code>IBAnimatable</code> 文件夹内搜索可以得到所有的结果，基于 <code>Demo</code> 中演示的转场动画，选择 <code>Card</code> 的 <code>Segue</code> 设置进行查看。源码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class PresentCardsSegue: UIStoryboardSegue &#123;</div><div class="line">  public override func perform() &#123;</div><div class="line">    destinationViewController.transitioningDelegate = PresenterManager.sharedManager().retrievePresenter(.Cards(direction: .Forward))</div><div class="line">    sourceViewController.presentViewController(destinationViewController, animated: true, completion: nil)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>翻译为：目的 <code>VC</code> 的转场代理的自定义配置、源VC进行模态推出目的 <code>VC</code> 。点到 <code>PresenterManager</code> 注释如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Presenter Manager: Used to cache the Presenters for Present and Dismiss transitions</div></pre></td></tr></table></figure></p>
+<p>证明没找错。<br><code>PresenterManager</code> 只有一个方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public func retrievePresenter(transitionAnimationType: TransitionAnimationType, transitionDuration: Duration = defaultTransitionDuration, interactiveGestureType: InteractiveGestureType? = nil) -&gt; Presenter</div></pre></td></tr></table></figure></p>
+<p>其参数：<code>TransitionAnimationType</code> 点进去之后可以发现是转场动画的枚举； <code>Duration</code> 即 <code>NSTimeInterval</code> 用于设定转场动画时间，默认是  <code>0.75</code>；<code>InteractiveGestureType</code> 是对目的 <code>VC</code> 返回源 <code>VC</code> 的手势枚举，根据所选转场动画的不同手势的参数：<code>GestureDirection</code> 所选择的枚举值也不同。</p>
+<p>所以当我们有代码配置 <code>IBAnimatable</code> 转场动画需要时只要设置目的 <code>VC</code> 的 <code>transitioningDelegate</code> ，用 <code>PresenterManager</code>的 <code>retrievePresenter</code> 方法配置动画选项。之后用源 <code>VC</code> 模态化推出目的 <code>VC</code> 就可以。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[自己]]></title>
       <url>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/</url>
       <content type="html"><![CDATA[<p>马上正式毕业，对于自己未来阴暗的预感</p>
