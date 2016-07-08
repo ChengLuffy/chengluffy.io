@@ -4,9 +4,9 @@
   <subtitle>一只不断学习的渣</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/ChengLuffy/chengluffy.github.io/"/>
+  <link href="https://chengluffy.github.io/"/>
   <updated>2016-07-07T13:08:54.000Z</updated>
-  <id>https://github.com/ChengLuffy/chengluffy.github.io/</id>
+  <id>https://chengluffy.github.io/</id>
   
   <author>
     <name>成璐飞</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>代码配置IBAnimatable转场动画</title>
-    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
-    <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/代码配置IBAnimatable转场动画/</id>
+    <link href="https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    <id>https://chengluffy.github.io/2016/07/07/代码配置IBAnimatable转场动画/</id>
     <published>2016-07-07T13:02:25.000Z</published>
     <updated>2016-07-07T13:08:54.000Z</updated>
     
@@ -38,17 +38,17 @@
     
     </summary>
     
-      <category term="iOSDev" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/iOSDev/"/>
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
     
     
-      <category term="IBAnimatable" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/IBAnimatable/"/>
+      <category term="IBAnimatable" scheme="https://chengluffy.github.io/tags/IBAnimatable/"/>
     
   </entry>
   
   <entry>
     <title>自己</title>
-    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/"/>
-    <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/自己/</id>
+    <link href="https://chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/"/>
+    <id>https://chengluffy.github.io/2016/07/03/自己/</id>
     <published>2016-07-03T15:34:30.000Z</published>
     <updated>2016-07-07T11:11:41.000Z</updated>
     
@@ -70,17 +70,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://chengluffy.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="迷茫" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/%E8%BF%B7%E8%8C%AB/"/>
+      <category term="迷茫" scheme="https://chengluffy.github.io/tags/%E8%BF%B7%E8%8C%AB/"/>
     
   </entry>
   
   <entry>
     <title>怪蜀黍的编程日记</title>
-    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
-    <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/编程日记/</id>
+    <link href="https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
+    <id>https://chengluffy.github.io/2016/07/02/编程日记/</id>
     <published>2016-07-01T16:30:08.000Z</published>
     <updated>2016-07-07T14:12:40.000Z</updated>
     
@@ -110,10 +110,10 @@
     
     </summary>
     
-      <category term="工程" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/%E5%B7%A5%E7%A8%8B/"/>
+      <category term="工程" scheme="https://chengluffy.github.io/categories/%E5%B7%A5%E7%A8%8B/"/>
     
     
-      <category term="GitHub汇总" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/GitHub%E6%B1%87%E6%80%BB/"/>
+      <category term="GitHub汇总" scheme="https://chengluffy.github.io/tags/GitHub%E6%B1%87%E6%80%BB/"/>
     
   </entry>
   
