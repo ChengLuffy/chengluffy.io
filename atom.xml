@@ -3,25 +3,25 @@
   <title>怪蜀黍的编程随想</title>
   <subtitle>一只不断学习的渣</subtitle>
   <link href="/atom.xml" rel="self"/>
-
+  
   <link href="https://github.com/ChengLuffy/chengluffy.github.io/"/>
   <updated>2016-07-07T13:08:54.000Z</updated>
   <id>https://github.com/ChengLuffy/chengluffy.github.io/</id>
-
+  
   <author>
     <name>成璐飞</name>
-
+    
   </author>
-
+  
   <generator uri="http://hexo.io/">Hexo</generator>
-
+  
   <entry>
     <title>代码配置IBAnimatable转场动画</title>
-    <link href="https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
     <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/代码配置IBAnimatable转场动画/</id>
     <published>2016-07-07T13:02:25.000Z</published>
     <updated>2016-07-07T13:08:54.000Z</updated>
-
+    
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/JakeLin/IBAnimatable&quot;&gt;IBAnimatable&lt;/a&gt; 是由 &lt;a href=&quot;https://github.com/JakeLin&quot;&gt;JakeLin&lt;/a&gt; 在Github上开源的动画开源库，在学习 &lt;code&gt;Swift&lt;/code&gt; 时曾经在练手项目 &lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot;&gt;ShadowsocksFree&lt;/a&gt; 中学习使用过，其最吸引我的是可以在 &lt;code&gt;StoryBoard&lt;/code&gt; 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 &lt;code&gt;API&lt;/code&gt; 介绍，最后通过阅读源码实现效果，总结如下。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;文章基于 &lt;code&gt;IBAnimatable 2.3&lt;/code&gt; 。&lt;/p&gt;
@@ -31,27 +31,27 @@
 &lt;p&gt;其参数：&lt;code&gt;TransitionAnimationType&lt;/code&gt; 点进去之后可以发现是转场动画的枚举； &lt;code&gt;Duration&lt;/code&gt; 即 &lt;code&gt;NSTimeInterval&lt;/code&gt; 用于设定转场动画时间，默认是  &lt;code&gt;0.75&lt;/code&gt;；&lt;code&gt;InteractiveGestureType&lt;/code&gt; 是对目的 &lt;code&gt;VC&lt;/code&gt; 返回源 &lt;code&gt;VC&lt;/code&gt; 的手势枚举，根据所选转场动画的不同手势的参数：&lt;code&gt;GestureDirection&lt;/code&gt; 所选择的枚举值也不同。&lt;/p&gt;
 &lt;p&gt;所以当我们有代码配置 &lt;code&gt;IBAnimatable&lt;/code&gt; 转场动画需要时只要设置目的 &lt;code&gt;VC&lt;/code&gt; 的 &lt;code&gt;transitioningDelegate&lt;/code&gt; ，用 &lt;code&gt;PresenterManager&lt;/code&gt;的 &lt;code&gt;retrievePresenter&lt;/code&gt; 方法配置动画选项。之后用源 &lt;code&gt;VC&lt;/code&gt; 模态化推出目的 &lt;code&gt;VC&lt;/code&gt; 就可以。&lt;/p&gt;
 </content>
-
+    
     <summary type="html">
-
+    
       &lt;p&gt;&lt;a href=&quot;https://github.com/JakeLin/IBAnimatable&quot;&gt;IBAnimatable&lt;/a&gt; 是由 &lt;a href=&quot;https://github.com/JakeLin&quot;&gt;JakeLin&lt;/a&gt; 在Github上开源的动画开源库，在学习 &lt;code&gt;Swift&lt;/code&gt; 时曾经在练手项目 &lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot;&gt;ShadowsocksFree&lt;/a&gt; 中学习使用过，其最吸引我的是可以在 &lt;code&gt;StoryBoard&lt;/code&gt; 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 &lt;code&gt;API&lt;/code&gt; 介绍，最后通过阅读源码实现效果，总结如下。&lt;/p&gt;
-
+    
     </summary>
-
+    
       <category term="iOSDev" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/iOSDev/"/>
-
-
+    
+    
       <category term="IBAnimatable" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/IBAnimatable/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>自己</title>
-    <link href="https://chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/"/>
+    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/"/>
     <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/自己/</id>
     <published>2016-07-03T15:34:30.000Z</published>
     <updated>2016-07-07T11:11:41.000Z</updated>
-
+    
     <content type="html">&lt;p&gt;马上正式毕业，对于自己未来阴暗的预感&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;作为一个二流大学的数学与应用数学专业毕业生，学艺不精，喜欢编程，却到了大三才受到&lt;code&gt;iOS:Object-C&lt;/code&gt; 的系统教育，没有办法理解那么多底层的东西可能是编程人生的一大败笔。结合现在的就业形势，突然有了一种不好的预感。&lt;/p&gt;
@@ -63,27 +63,27 @@
 &lt;p&gt;做开发的程序员那么多，真正能证明自己价值的也没多少，自己会在之后站在怎样的高度，这是之前的担忧。现在众多羁绊也使得自己在这条路上走下去的愿景变得有点不现实😂。&lt;/p&gt;
 &lt;p&gt;我想无论之后从事怎样的行业，对于这个行业的热爱是不会减退的， &lt;code&gt;WWDC2016&lt;/code&gt; 看的我热血沸腾，继续码代码是我对于未来美好生活的一点点急切的希望。&lt;/p&gt;
 </content>
-
+    
     <summary type="html">
-
+    
       &lt;p&gt;马上正式毕业，对于自己未来阴暗的预感&lt;/p&gt;
-
+    
     </summary>
-
+    
       <category term="随笔" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-
-
+    
+    
       <category term="迷茫" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/%E8%BF%B7%E8%8C%AB/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>怪蜀黍的编程日记</title>
-    <link href="https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
+    <link href="https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
     <id>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/编程日记/</id>
     <published>2016-07-01T16:30:08.000Z</published>
     <updated>2016-07-07T14:12:40.000Z</updated>
-
+    
     <content type="html">&lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -102,19 +102,19 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-
+    
     <summary type="html">
-
+    
       &lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
+    
     </summary>
-
+    
       <category term="工程" scheme="https://github.com/ChengLuffy/chengluffy.github.io/categories/%E5%B7%A5%E7%A8%8B/"/>
-
-
+    
+    
       <category term="GitHub汇总" scheme="https://github.com/ChengLuffy/chengluffy.github.io/tags/GitHub%E6%B1%87%E6%80%BB/"/>
-
+    
   </entry>
-
+  
 </feed>
