@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
-  
-  
-    
+
+
+
     <entry>
       <title><![CDATA[代码配置IBAnimatable转场动画]]></title>
-      <url>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/</url>
+      <url>https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<p><a href="https://github.com/JakeLin/IBAnimatable">IBAnimatable</a> 是由 <a href="https://github.com/JakeLin">JakeLin</a> 在Github上开源的动画开源库，在学习 <code>Swift</code> 时曾经在练手项目 <a href="https://github.com/ChengLuffy/ShadowsocksFree">ShadowsocksFree</a> 中学习使用过，其最吸引我的是可以在 <code>StoryBoard</code> 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 <code>API</code> 介绍，最后通过阅读源码实现效果，总结如下。</p>
 <a id="more"></a>
 <p>文章基于 <code>IBAnimatable 2.3</code> 。</p>
@@ -16,10 +16,10 @@
 <p>所以当我们有代码配置 <code>IBAnimatable</code> 转场动画需要时只要设置目的 <code>VC</code> 的 <code>transitioningDelegate</code> ，用 <code>PresenterManager</code>的 <code>retrievePresenter</code> 方法配置动画选项。之后用源 <code>VC</code> 模态化推出目的 <code>VC</code> 就可以。</p>
 ]]></content>
     </entry>
-    
+
     <entry>
       <title><![CDATA[自己]]></title>
-      <url>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/</url>
+      <url>https://chengluffy.github.io/2016/07/03/%E8%87%AA%E5%B7%B1/</url>
       <content type="html"><![CDATA[<p>马上正式毕业，对于自己未来阴暗的预感</p>
 <a id="more"></a>
 <p>作为一个二流大学的数学与应用数学专业毕业生，学艺不精，喜欢编程，却到了大三才受到<code>iOS:Object-C</code> 的系统教育，没有办法理解那么多底层的东西可能是编程人生的一大败笔。结合现在的就业形势，突然有了一种不好的预感。</p>
@@ -32,10 +32,10 @@
 <p>我想无论之后从事怎样的行业，对于这个行业的热爱是不会减退的， <code>WWDC2016</code> 看的我热血沸腾，继续码代码是我对于未来美好生活的一点点急切的希望。</p>
 ]]></content>
     </entry>
-    
+
     <entry>
       <title><![CDATA[怪蜀黍的编程日记]]></title>
-      <url>https://github.com/ChengLuffy/chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/</url>
+      <url>https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/</url>
       <content type="html"><![CDATA[<p>一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!</p>
 <p><img src="https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png" alt=""></p>
 <a id="more"></a>
@@ -55,7 +55,7 @@
 </ol>
 ]]></content>
     </entry>
-    
-  
-  
+
+
+
 </search>
