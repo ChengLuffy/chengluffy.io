@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[iOS模拟器调试3DTouch]]></title>
+      <url>https://chengluffy.github.io/2016/07/22/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%953DTouch/</url>
+      <content type="html"><![CDATA[<p>模拟器设置栏的 <code>Hardware</code> 内选择 <code>Use Trackpad force for 3D touch</code> 快捷键 <code>^ + com + 3</code></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://www.jianshu.com/p/3d300d0e626e" title="跟着官方文档学习3D Touch" target="_blank" rel="external">跟着官方文档学习3D Touch</a></p>
+<p><a href="http://www.jianshu.com/p/5e2827c9be29" title="3DTouch入门篇" target="_blank" rel="external">3DTouch入门篇</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[代码配置IBAnimatable转场动画]]></title>
       <url>https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<p><a href="https://github.com/JakeLin/IBAnimatable" target="_blank" rel="external">IBAnimatable</a> 是由 <a href="https://github.com/JakeLin" target="_blank" rel="external">JakeLin</a> 在Github上开源的动画开源库，在学习 <code>Swift</code> 时曾经在练手项目 <a href="https://github.com/ChengLuffy/ShadowsocksFree" target="_blank" rel="external">ShadowsocksFree</a> 中学习使用过，其最吸引我的是可以在 <code>StoryBoard</code> 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 <code>API</code> 介绍，最后通过阅读源码实现效果，总结如下。</p>
