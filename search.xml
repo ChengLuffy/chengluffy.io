@@ -4,6 +4,55 @@
   
     
     <entry>
+      <title><![CDATA[JPFPSStatus源码学习]]></title>
+      <url>https://chengluffy.github.io/2016/07/28/JPFPSStatus%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><code>iOS</code> 调试程序时 <code>FPS</code> 作为反应 <strong>UI</strong> 是否流畅的指标，一般的 <strong>60</strong> 的 <code>FPS</code> 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 <code>FPS</code> 值造成 <strong>UI</strong> 卡顿。如何优化程序逻辑以达到提升 <code>FPS</code> 值的目的不在本次的学习范围内，只是在开发过程中有用到 <a href="https://github.com/joggerplus/JPFPSStatus" target="_blank" rel="external">JPFPSStatus</a>，代码量不多，学习下。<br><a id="more"></a></p>
+<p>首先介绍下主要使用类 <code>CADisplayLink</code> <strong>Xcode</strong> 给出的介绍如下：</p>
+<blockquote>
+<p>Class representing a timer bound to the display vsync</p>
+</blockquote>
+<p>翻译应该是：</p>
+<blockquote>
+<p>类代表一个绑定到屏幕垂直同步显示的定时器</p>
+</blockquote>
+<p>更加详细的说明见 <a href="https://developer.apple.com/library/ios/documentation/QuartzCore/Reference/CADisplayLink_ClassRef/#//apple_ref/occ/clm/CADisplayLink" title="developer.apple" target="_blank" rel="external">官方文档</a></p>
+<p>需要注意的是</p>
+<blockquote>
+<p>CADisplayLink should not be subclassed.<br>CADisplayLink 不可被继承。</p>
+</blockquote>
+<p>其创建实例的方法为<br><code>Object-C:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ (CADisplayLink *)displayLinkWithTarget:(id)target</div><div class="line">                                selector:(SEL)sel</div></pre></td></tr></table></figure></p>
+<p>or <code>Swift:</code><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">init</span>(target target: <span class="type">AnyObject</span>, selector sel: <span class="type">Selector</span>)</div></pre></td></tr></table></figure></p>
+<p>参数解释：</p>
+<table>
+<thead>
+<tr>
+<th>target:</th>
+<th>An object to be notified when the screen should be updated. // 当屏幕刷新是所通知的对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sel:</td>
+<td>The method to call on the target. // 所通知对象调用的方法</td>
+</tr>
+</tbody>
+</table>
+<p>实例应被加入 <code>RunLoop</code>， <code>mode</code> 选择为： <code>NSRunLoopCommonModes</code><br>实例销毁时应从 <code>RunLoop</code> 中移除。<br>实例创建后默认就开始向目标发送通知，可以设置 <code>Bool</code> 属性值 <code>paused</code> 来 <em>暂停／开启</em></p>
+<p>另一个关键的属性值 <code>timestamp</code></p>
+<blockquote>
+<p>the time value associated with the last frame that was displayed. (read-only)<br>与已显示的最后一帧相关联的时间值。 （只读）</p>
+</blockquote>
+<p>那么求 <code>FPS</code> -界面每秒显示帧数-的基本思路就可以得出， <code>CADisplayLink</code> 的实例被创建后，界面每次刷新 <strong>UI</strong> 都会调用所关联的 <code>target</code> 的 <code>sel</code> 方法，记录调用次数，在方法中我们拿到 <code>CADisplayLink</code> 实例，获取其属性值 <code>timestamp</code> 并记录，当 <code>timestamp</code> 相差 <em>1秒</em> 时期间方法调用次数就是界面的 <code>FPS</code>。具体实现见源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">- (void)displayLinkTick:(CADisplayLink *)link &#123;</div><div class="line">    if (lastTime == 0) &#123;</div><div class="line">      // 初次调用直接记录时间</div><div class="line">        lastTime = link.timestamp;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    count++;</div><div class="line">    NSTimeInterval interval = link.timestamp - lastTime;</div><div class="line">    // 在时间差为1s后，count即为fps</div><div class="line">    if (interval &lt; 1) return;</div><div class="line">    lastTime = link.timestamp;</div><div class="line">    float fps = count / interval;</div><div class="line">    count = 0;</div><div class="line"></div><div class="line">    NSString *text = [NSString stringWithFormat:@&quot;%d FPS&quot;,(int)round(fps)];</div><div class="line">    [fpsLabel setText: text];</div><div class="line">    if (_fpsHandler) &#123;</div><div class="line">        _fpsHandler((int)round(fps));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上就是关于FPS计算的主要代码，源码中对系统是否进入活跃状态的通知进行接受，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationDidBecomeActiveNotification)</div><div class="line">                                                     name: UIApplicationDidBecomeActiveNotification</div><div class="line">                                                   object: nil];</div><div class="line"></div><div class="line">        [[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationWillResignActiveNotification)</div><div class="line">                                                     name: UIApplicationWillResignActiveNotification</div><div class="line">                                                   object: nil];</div></pre></td></tr></table></figure></p>
+<p>接受通知的方法第一次遇到，记录学习。</p>
+<ul>
+<li>整体实现过程并不复杂，源码使用的是 <code>Object-C</code> 之后可以用 <code>Swift</code> 实现一遍。</li>
+<li>不理解的是，源码将 <code>fps</code> 显示的 <code>UILabel</code> 加载到系统的 <code>rootViewController</code> 上，也就是说在其他界面是无法显示的，是否可以加到 <code>Window</code> 上以达到在所有页面显示的目的。</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[iOS模拟器调试3DTouch]]></title>
       <url>https://chengluffy.github.io/2016/07/22/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%953DTouch/</url>
       <content type="html"><![CDATA[<p>模拟器设置栏的 <code>Hardware</code> 内选择 <code>Use Trackpad force for 3D touch</code> 快捷键 <code>^ + com + 3</code></p>

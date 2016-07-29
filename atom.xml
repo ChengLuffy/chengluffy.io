@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-07-22T16:43:49.000Z</updated>
+  <updated>2016-07-29T01:26:44.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPFPSStatus源码学习</title>
+    <link href="https://chengluffy.github.io/2016/07/28/JPFPSStatus%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://chengluffy.github.io/2016/07/28/JPFPSStatus源码学习/</id>
+    <published>2016-07-27T17:02:30.000Z</published>
+    <updated>2016-07-29T01:26:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;code&gt;iOS&lt;/code&gt; 调试程序时 &lt;code&gt;FPS&lt;/code&gt; 作为反应 &lt;strong&gt;UI&lt;/strong&gt; 是否流畅的指标，一般的 &lt;strong&gt;60&lt;/strong&gt; 的 &lt;code&gt;FPS&lt;/code&gt; 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 &lt;code&gt;FPS&lt;/code&gt; 值造成 &lt;strong&gt;UI&lt;/strong&gt; 卡顿。如何优化程序逻辑以达到提升 &lt;code&gt;FPS&lt;/code&gt; 值的目的不在本次的学习范围内，只是在开发过程中有用到 &lt;a href=&quot;https://github.com/joggerplus/JPFPSStatus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JPFPSStatus&lt;/a&gt;，代码量不多，学习下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先介绍下主要使用类 &lt;code&gt;CADisplayLink&lt;/code&gt; &lt;strong&gt;Xcode&lt;/strong&gt; 给出的介绍如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Class representing a timer bound to the display vsync&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;翻译应该是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类代表一个绑定到屏幕垂直同步显示的定时器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;更加详细的说明见 &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/QuartzCore/Reference/CADisplayLink_ClassRef/#//apple_ref/occ/clm/CADisplayLink&quot; title=&quot;developer.apple&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要注意的是&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CADisplayLink should not be subclassed.&lt;br&gt;CADisplayLink 不可被继承。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其创建实例的方法为&lt;br&gt;&lt;code&gt;Object-C:&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;+ (CADisplayLink *)displayLinkWithTarget:(id)target&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                selector:(SEL)sel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;or &lt;code&gt;Swift:&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;init&lt;/span&gt;(target target: &lt;span class=&quot;type&quot;&gt;AnyObject&lt;/span&gt;, selector sel: &lt;span class=&quot;type&quot;&gt;Selector&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;参数解释：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;target:&lt;/th&gt;
+&lt;th&gt;An object to be notified when the screen should be updated. // 当屏幕刷新是所通知的对象&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sel:&lt;/td&gt;
+&lt;td&gt;The method to call on the target. // 所通知对象调用的方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;实例应被加入 &lt;code&gt;RunLoop&lt;/code&gt;， &lt;code&gt;mode&lt;/code&gt; 选择为： &lt;code&gt;NSRunLoopCommonModes&lt;/code&gt;&lt;br&gt;实例销毁时应从 &lt;code&gt;RunLoop&lt;/code&gt; 中移除。&lt;br&gt;实例创建后默认就开始向目标发送通知，可以设置 &lt;code&gt;Bool&lt;/code&gt; 属性值 &lt;code&gt;paused&lt;/code&gt; 来 &lt;em&gt;暂停／开启&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;另一个关键的属性值 &lt;code&gt;timestamp&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the time value associated with the last frame that was displayed. (read-only)&lt;br&gt;与已显示的最后一帧相关联的时间值。 （只读）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那么求 &lt;code&gt;FPS&lt;/code&gt; -界面每秒显示帧数-的基本思路就可以得出， &lt;code&gt;CADisplayLink&lt;/code&gt; 的实例被创建后，界面每次刷新 &lt;strong&gt;UI&lt;/strong&gt; 都会调用所关联的 &lt;code&gt;target&lt;/code&gt; 的 &lt;code&gt;sel&lt;/code&gt; 方法，记录调用次数，在方法中我们拿到 &lt;code&gt;CADisplayLink&lt;/code&gt; 实例，获取其属性值 &lt;code&gt;timestamp&lt;/code&gt; 并记录，当 &lt;code&gt;timestamp&lt;/code&gt; 相差 &lt;em&gt;1秒&lt;/em&gt; 时期间方法调用次数就是界面的 &lt;code&gt;FPS&lt;/code&gt;。具体实现见源码：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (void)displayLinkTick:(CADisplayLink *)link &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if (lastTime == 0) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      // 初次调用直接记录时间&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        lastTime = link.timestamp;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        return;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    count++;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    NSTimeInterval interval = link.timestamp - lastTime;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    // 在时间差为1s后，count即为fps&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if (interval &amp;lt; 1) return;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    lastTime = link.timestamp;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    float fps = count / interval;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    count = 0;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    NSString *text = [NSString stringWithFormat:@&amp;quot;%d FPS&amp;quot;,(int)round(fps)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [fpsLabel setText: text];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if (_fpsHandler) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        _fpsHandler((int)round(fps));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以上就是关于FPS计算的主要代码，源码中对系统是否进入活跃状态的通知进行接受，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[[NSNotificationCenter defaultCenter] addObserver: self&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                 selector: @selector(applicationDidBecomeActiveNotification)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                     name: UIApplicationDidBecomeActiveNotification&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                   object: nil];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        [[NSNotificationCenter defaultCenter] addObserver: self&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                 selector: @selector(applicationWillResignActiveNotification)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                     name: UIApplicationWillResignActiveNotification&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                   object: nil];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;接受通知的方法第一次遇到，记录学习。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;整体实现过程并不复杂，源码使用的是 &lt;code&gt;Object-C&lt;/code&gt; 之后可以用 &lt;code&gt;Swift&lt;/code&gt; 实现一遍。&lt;/li&gt;
+&lt;li&gt;不理解的是，源码将 &lt;code&gt;fps&lt;/code&gt; 显示的 &lt;code&gt;UILabel&lt;/code&gt; 加载到系统的 &lt;code&gt;rootViewController&lt;/code&gt; 上，也就是说在其他界面是无法显示的，是否可以加到 &lt;code&gt;Window&lt;/code&gt; 上以达到在所有页面显示的目的。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;iOS&lt;/code&gt; 调试程序时 &lt;code&gt;FPS&lt;/code&gt; 作为反应 &lt;strong&gt;UI&lt;/strong&gt; 是否流畅的指标，一般的 &lt;strong&gt;60&lt;/strong&gt; 的 &lt;code&gt;FPS&lt;/code&gt; 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 &lt;code&gt;FPS&lt;/code&gt; 值造成 &lt;strong&gt;UI&lt;/strong&gt; 卡顿。如何优化程序逻辑以达到提升 &lt;code&gt;FPS&lt;/code&gt; 值的目的不在本次的学习范围内，只是在开发过程中有用到 &lt;a href=&quot;https://github.com/joggerplus/JPFPSStatus&quot;&gt;JPFPSStatus&lt;/a&gt;，代码量不多，学习下。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
+    
+    
+      <category term="iOS FPS" scheme="https://chengluffy.github.io/tags/iOS-FPS/"/>
+    
+      <category term="源码学习" scheme="https://chengluffy.github.io/tags/%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS模拟器调试3DTouch</title>
