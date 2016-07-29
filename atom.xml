@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-07-29T01:26:44.000Z</updated>
+  <updated>2016-07-29T02:03:33.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://chengluffy.github.io/2016/07/28/JPFPSStatus%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     <id>https://chengluffy.github.io/2016/07/28/JPFPSStatus源码学习/</id>
     <published>2016-07-27T17:02:30.000Z</published>
-    <updated>2016-07-29T01:26:44.000Z</updated>
+    <updated>2016-07-29T02:03:33.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;code&gt;iOS&lt;/code&gt; 调试程序时 &lt;code&gt;FPS&lt;/code&gt; 作为反应 &lt;strong&gt;UI&lt;/strong&gt; 是否流畅的指标，一般的 &lt;strong&gt;60&lt;/strong&gt; 的 &lt;code&gt;FPS&lt;/code&gt; 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 &lt;code&gt;FPS&lt;/code&gt; 值造成 &lt;strong&gt;UI&lt;/strong&gt; 卡顿。如何优化程序逻辑以达到提升 &lt;code&gt;FPS&lt;/code&gt; 值的目的不在本次的学习范围内，只是在开发过程中有用到 &lt;a href=&quot;https://github.com/joggerplus/JPFPSStatus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JPFPSStatus&lt;/a&gt;，代码量不多，学习下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;首先介绍下主要使用类 &lt;code&gt;CADisplayLink&lt;/code&gt; &lt;strong&gt;Xcode&lt;/strong&gt; 给出的介绍如下：&lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;p&gt;接受通知的方法第一次遇到，记录学习。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;整体实现过程并不复杂，源码使用的是 &lt;code&gt;Object-C&lt;/code&gt; 之后可以用 &lt;code&gt;Swift&lt;/code&gt; 实现一遍。&lt;/li&gt;
-&lt;li&gt;不理解的是，源码将 &lt;code&gt;fps&lt;/code&gt; 显示的 &lt;code&gt;UILabel&lt;/code&gt; 加载到系统的 &lt;code&gt;rootViewController&lt;/code&gt; 上，也就是说在其他界面是无法显示的，是否可以加到 &lt;code&gt;Window&lt;/code&gt; 上以达到在所有页面显示的目的。&lt;/li&gt;
+&lt;li&gt;不理解的是，源码将 &lt;code&gt;fps&lt;/code&gt; 显示的 &lt;code&gt;UILabel&lt;/code&gt; 加载到系统的 &lt;code&gt;rootViewController&lt;/code&gt; 上，也就是说在其他界面是无法显示的，可以加到 &lt;code&gt;Window&lt;/code&gt; 上以达到在所有页面显示的目的。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
