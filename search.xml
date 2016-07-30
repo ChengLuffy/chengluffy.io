@@ -46,7 +46,7 @@
 <p>以上就是关于FPS计算的主要代码，源码中对系统是否进入活跃状态的通知进行接受，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationDidBecomeActiveNotification)</div><div class="line">                                                     name: UIApplicationDidBecomeActiveNotification</div><div class="line">                                                   object: nil];</div><div class="line"></div><div class="line">        [[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationWillResignActiveNotification)</div><div class="line">                                                     name: UIApplicationWillResignActiveNotification</div><div class="line">                                                   object: nil];</div></pre></td></tr></table></figure></p>
 <p>接受通知的方法第一次遇到，记录学习。</p>
 <ul>
-<li>整体实现过程并不复杂，源码使用的是 <code>Object-C</code> 之后可以用 <code>Swift</code> 实现一遍。</li>
+<li>整体实现过程并不复杂，源码使用的是 <code>Object-C</code> 之后可以用 <code>Swift</code> 实现一遍（已实现： <a href="https://github.com/ChengLuffy/FPSStatusSwift" title="Github" target="_blank" rel="external">Demo</a> ）。</li>
 <li>不理解的是，源码将 <code>fps</code> 显示的 <code>UILabel</code> 加载到系统的 <code>rootViewController</code> 上，也就是说在其他界面是无法显示的，可以加到 <code>Window</code> 上以达到在所有页面显示的目的。</li>
 </ul>
 ]]></content>
@@ -99,22 +99,53 @@
       <title><![CDATA[怪蜀黍的编程日记]]></title>
       <url>https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/</url>
       <content type="html"><![CDATA[<p>一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!</p>
-<p><img src="https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png" alt=""></p>
+<p><img src="/img/Dream.png" alt=""></p>
 <a id="more"></a>
 <ol>
-<li><p><a href="https://github.com/ChengLuffy/AnimationForShoppingCart" target="_blank" rel="external">AnimationForShoppingCart</a> 学习iOS开发是对CA动画的实践项目，<code>Object-C</code>代码，同时制作了<code>cocoaPods</code>轮子。</p>
-</li>
-<li><p><a href="https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation" target="_blank" rel="external">RefreshControl-ImageViewAnimation</a> <code>Swift</code>学习初实践。</p>
-</li>
-<li><p><a href="https://github.com/ChengLuffy/StarsForEvaluation" target="_blank" rel="external">StarsForEvaluation</a> <code>Object-C</code>实现触摸或输入给予星评，实习工作时的项目需要。</p>
-</li>
-<li><p><a href="https://github.com/ChengLuffy/UITableViewCellAutoHeight" target="_blank" rel="external">UITableViewCellAutoHeight</a> <code>Object-C</code>代码，同样是实习工作时项目需要。</p>
-</li>
-<li><p><a href="https://github.com/ChengLuffy/ShadowsocksFree" target="_blank" rel="external">ShadowsocksFree</a> <code>Swift</code>实践项目，有感于搬瓦工的不稳定性，从<a href="http://www.ishadowsocks.net/" target="_blank" rel="external">ishadowsocks</a> 获取限时免费的<strong>SS</strong>账号度过不稳定期。同时作为<code>Swift</code>第一个实践项目，尽可能的完善相关功能，属于<strong>SS</strong>账号归档管理工具。</p>
-</li>
-<li><p><a href="https://github.com/ChengLuffy/Popover" target="_blank" rel="external">Popover</a> Fork自<a href="https://github.com/corin8823/Popover" target="_blank" rel="external">corin8823/Popover</a> 应用到<code>ShadowsocksFress</code>项目中，并作相应的本地化适应。对于边缘点击的修正得到了原作者的注意。</p>
-</li>
+<li><a href="https://github.com/ChengLuffy/AnimationForShoppingCart" target="_blank" rel="external">AnimationForShoppingCart</a> 学习iOS开发是对CA动画的实践项目，<code>Object-C</code>代码，同时制作了<code>cocoaPods</code>轮子。</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>project</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/FPSStatusSwift" target="_blank" rel="external">FPSStatusSwift</a></td>
+<td><code>FPS</code> 实时显示的swift实现， <a href="/2016/07/28/JPFPSStatus源码学习/">Blog</a> 。</td>
+</tr>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/3DTouch-Demo" target="_blank" rel="external">3DTouch-Demo</a></td>
+<td>学习 <code>3D Touch</code>。</td>
+</tr>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/Popover" target="_blank" rel="external">Popover</a></td>
+<td>Fork自<a href="https://github.com/corin8823/Popover" target="_blank" rel="external">corin8823/Popover</a> 应用到<code>ShadowsocksFress</code>项目中，并作相应的本地化适应。对于边缘点击的修正得到了原作者的注意。</td>
+</tr>
+<tr>
+<td>  <a href="https://github.com/ChengLuffy/ShadowsocksFree" target="_blank" rel="external">ShadowsocksFree</a></td>
+<td><code>Swift</code>实践项目，有感于搬瓦工的不稳定性，从<a href="http://www.ishadowsocks.net/" target="_blank" rel="external">ishadowsocks</a> 获取限时免费的<strong>SS</strong>账号度过不稳定期。同时作为<code>Swift</code>第一个实践项目，尽可能的完善相关功能，属于<strong>SS</strong>账号归档管理工具。</td>
+</tr>
+<tr>
+<td>  <a href="https://github.com/ChengLuffy/UITableViewCellAutoHeight" target="_blank" rel="external">UITableViewCellAutoHeight</a></td>
+<td><code>Object-C</code>代码，同样是实习工作时项目需要。</td>
+</tr>
+<tr>
+<td>  <a href="https://github.com/ChengLuffy/StarsForEvaluation" target="_blank" rel="external">StarsForEvaluation</a></td>
+<td><code>Object-C</code>实现触摸或输入给予星评，实习工作时的项目需要。</td>
+</tr>
+<tr>
+<td>  <a href="https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation" target="_blank" rel="external">RefreshControl-ImageViewAnimation</a></td>
+<td><code>Swift</code>学习初实践。</td>
+</tr>
+<tr>
+<td>  <a href="https://github.com/ChengLuffy/AnimationForShoppingCart" target="_blank" rel="external">AnimationForShoppingCart</a></td>
+<td>学习iOS开发是对CA动画的实践项目，<code>Object-C</code>代码，同时制作了<code>cocoaPods</code>轮子。</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     

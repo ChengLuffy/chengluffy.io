@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://chengluffy.github.io/2016/07/28/JPFPSStatus源码学习/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
 <meta property="og:description" content="iOS 调试程序时 FPS 作为反应 UI 是否流畅的指标，一般的 60 的 FPS 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 FPS 值造成 UI 卡顿。如何优化程序逻辑以达到提升 FPS 值的目的不在本次的学习范围内，只是在开发过程中有用到 JPFPSStatus，代码量不多，学习下。">
-<meta property="og:updated_time" content="2016-07-29T02:03:33.000Z">
+<meta property="og:updated_time" content="2016-07-30T05:25:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JPFPSStatus源码学习">
 <meta name="twitter:description" content="iOS 调试程序时 FPS 作为反应 UI 是否流畅的指标，一般的 60 的 FPS 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 FPS 值造成 UI 卡顿。如何优化程序逻辑以达到提升 FPS 值的目的不在本次的学习范围内，只是在开发过程中有用到 JPFPSStatus，代码量不多，学习下。">
@@ -407,7 +407,7 @@
 <p>以上就是关于FPS计算的主要代码，源码中对系统是否进入活跃状态的通知进行接受，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationDidBecomeActiveNotification)</div><div class="line">                                                     name: UIApplicationDidBecomeActiveNotification</div><div class="line">                                                   object: nil];</div><div class="line"></div><div class="line">        [[NSNotificationCenter defaultCenter] addObserver: self</div><div class="line">                                                 selector: @selector(applicationWillResignActiveNotification)</div><div class="line">                                                     name: UIApplicationWillResignActiveNotification</div><div class="line">                                                   object: nil];</div></pre></td></tr></table></figure></p>
 <p>接受通知的方法第一次遇到，记录学习。</p>
 <ul>
-<li>整体实现过程并不复杂，源码使用的是 <code>Object-C</code> 之后可以用 <code>Swift</code> 实现一遍。</li>
+<li>整体实现过程并不复杂，源码使用的是 <code>Object-C</code> 之后可以用 <code>Swift</code> 实现一遍（已实现： <a href="https://github.com/ChengLuffy/FPSStatusSwift" title="Github" target="_blank" rel="external">Demo</a> ）。</li>
 <li>不理解的是，源码将 <code>fps</code> 显示的 <code>UILabel</code> 加载到系统的 <code>rootViewController</code> 上，也就是说在其他界面是无法显示的，可以加到 <code>Window</code> 上以达到在所有页面显示的目的。</li>
 </ul>
 

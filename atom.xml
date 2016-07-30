@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-07-29T02:03:33.000Z</updated>
+  <updated>2016-07-30T05:25:51.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://chengluffy.github.io/2016/07/28/JPFPSStatus%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     <id>https://chengluffy.github.io/2016/07/28/JPFPSStatus源码学习/</id>
     <published>2016-07-27T17:02:30.000Z</published>
-    <updated>2016-07-29T02:03:33.000Z</updated>
+    <updated>2016-07-30T05:25:51.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;code&gt;iOS&lt;/code&gt; 调试程序时 &lt;code&gt;FPS&lt;/code&gt; 作为反应 &lt;strong&gt;UI&lt;/strong&gt; 是否流畅的指标，一般的 &lt;strong&gt;60&lt;/strong&gt; 的 &lt;code&gt;FPS&lt;/code&gt; 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 &lt;code&gt;FPS&lt;/code&gt; 值造成 &lt;strong&gt;UI&lt;/strong&gt; 卡顿。如何优化程序逻辑以达到提升 &lt;code&gt;FPS&lt;/code&gt; 值的目的不在本次的学习范围内，只是在开发过程中有用到 &lt;a href=&quot;https://github.com/joggerplus/JPFPSStatus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JPFPSStatus&lt;/a&gt;，代码量不多，学习下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;首先介绍下主要使用类 &lt;code&gt;CADisplayLink&lt;/code&gt; &lt;strong&gt;Xcode&lt;/strong&gt; 给出的介绍如下：&lt;/p&gt;
@@ -62,7 +62,7 @@
 &lt;p&gt;以上就是关于FPS计算的主要代码，源码中对系统是否进入活跃状态的通知进行接受，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[[NSNotificationCenter defaultCenter] addObserver: self&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                 selector: @selector(applicationDidBecomeActiveNotification)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                     name: UIApplicationDidBecomeActiveNotification&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                   object: nil];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        [[NSNotificationCenter defaultCenter] addObserver: self&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                 selector: @selector(applicationWillResignActiveNotification)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                     name: UIApplicationWillResignActiveNotification&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                                   object: nil];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;接受通知的方法第一次遇到，记录学习。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;整体实现过程并不复杂，源码使用的是 &lt;code&gt;Object-C&lt;/code&gt; 之后可以用 &lt;code&gt;Swift&lt;/code&gt; 实现一遍。&lt;/li&gt;
+&lt;li&gt;整体实现过程并不复杂，源码使用的是 &lt;code&gt;Object-C&lt;/code&gt; 之后可以用 &lt;code&gt;Swift&lt;/code&gt; 实现一遍（已实现： &lt;a href=&quot;https://github.com/ChengLuffy/FPSStatusSwift&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Demo&lt;/a&gt; ）。&lt;/li&gt;
 &lt;li&gt;不理解的是，源码将 &lt;code&gt;fps&lt;/code&gt; 显示的 &lt;code&gt;UILabel&lt;/code&gt; 加载到系统的 &lt;code&gt;rootViewController&lt;/code&gt; 上，也就是说在其他界面是无法显示的，可以加到 &lt;code&gt;Window&lt;/code&gt; 上以达到在所有页面显示的目的。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -181,31 +181,62 @@
     <link href="https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
     <id>https://chengluffy.github.io/2016/07/02/编程日记/</id>
     <published>2016-07-01T16:30:08.000Z</published>
-    <updated>2016-07-07T14:12:40.000Z</updated>
+    <updated>2016-07-30T05:34:47.000Z</updated>
     
     <content type="html">&lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/AnimationForShoppingCart&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AnimationForShoppingCart&lt;/a&gt; 学习iOS开发是对CA动画的实践项目，&lt;code&gt;Object-C&lt;/code&gt;代码，同时制作了&lt;code&gt;cocoaPods&lt;/code&gt;轮子。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RefreshControl-ImageViewAnimation&lt;/a&gt; &lt;code&gt;Swift&lt;/code&gt;学习初实践。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/StarsForEvaluation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StarsForEvaluation&lt;/a&gt; &lt;code&gt;Object-C&lt;/code&gt;实现触摸或输入给予星评，实习工作时的项目需要。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/UITableViewCellAutoHeight&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UITableViewCellAutoHeight&lt;/a&gt; &lt;code&gt;Object-C&lt;/code&gt;代码，同样是实习工作时项目需要。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ShadowsocksFree&lt;/a&gt; &lt;code&gt;Swift&lt;/code&gt;实践项目，有感于搬瓦工的不稳定性，从&lt;a href=&quot;http://www.ishadowsocks.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ishadowsocks&lt;/a&gt; 获取限时免费的&lt;strong&gt;SS&lt;/strong&gt;账号度过不稳定期。同时作为&lt;code&gt;Swift&lt;/code&gt;第一个实践项目，尽可能的完善相关功能，属于&lt;strong&gt;SS&lt;/strong&gt;账号归档管理工具。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ChengLuffy/Popover&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Popover&lt;/a&gt; Fork自&lt;a href=&quot;https://github.com/corin8823/Popover&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;corin8823/Popover&lt;/a&gt; 应用到&lt;code&gt;ShadowsocksFress&lt;/code&gt;项目中，并作相应的本地化适应。对于边缘点击的修正得到了原作者的注意。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChengLuffy/AnimationForShoppingCart&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AnimationForShoppingCart&lt;/a&gt; 学习iOS开发是对CA动画的实践项目，&lt;code&gt;Object-C&lt;/code&gt;代码，同时制作了&lt;code&gt;cocoaPods&lt;/code&gt;轮子。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;project&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/FPSStatusSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FPSStatusSwift&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;FPS&lt;/code&gt; 实时显示的swift实现， &lt;a href=&quot;/2016/07/28/JPFPSStatus源码学习/&quot;&gt;Blog&lt;/a&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/3DTouch-Demo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3DTouch-Demo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;学习 &lt;code&gt;3D Touch&lt;/code&gt;。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/Popover&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Popover&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fork自&lt;a href=&quot;https://github.com/corin8823/Popover&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;corin8823/Popover&lt;/a&gt; 应用到&lt;code&gt;ShadowsocksFress&lt;/code&gt;项目中，并作相应的本地化适应。对于边缘点击的修正得到了原作者的注意。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ShadowsocksFree&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Swift&lt;/code&gt;实践项目，有感于搬瓦工的不稳定性，从&lt;a href=&quot;http://www.ishadowsocks.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ishadowsocks&lt;/a&gt; 获取限时免费的&lt;strong&gt;SS&lt;/strong&gt;账号度过不稳定期。同时作为&lt;code&gt;Swift&lt;/code&gt;第一个实践项目，尽可能的完善相关功能，属于&lt;strong&gt;SS&lt;/strong&gt;账号归档管理工具。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/UITableViewCellAutoHeight&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UITableViewCellAutoHeight&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Object-C&lt;/code&gt;代码，同样是实习工作时项目需要。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/StarsForEvaluation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StarsForEvaluation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Object-C&lt;/code&gt;实现触摸或输入给予星评，实习工作时的项目需要。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RefreshControl-ImageViewAnimation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Swift&lt;/code&gt;学习初实践。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/AnimationForShoppingCart&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AnimationForShoppingCart&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;学习iOS开发是对CA动画的实践项目，&lt;code&gt;Object-C&lt;/code&gt;代码，同时制作了&lt;code&gt;cocoaPods&lt;/code&gt;轮子。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     
     <summary type="html">
     
       &lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ChengLuffy/chengluffy.github.io/master/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
