@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-07-30T05:25:51.000Z</updated>
+  <updated>2016-08-05T11:01:41.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -14,6 +14,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>office文件的iOS-UTI支持</title>
+    <link href="https://chengluffy.github.io/2016/08/05/office%E6%96%87%E4%BB%B6%E7%9A%84iOS-UTI%E6%94%AF%E6%8C%81/"/>
+    <id>https://chengluffy.github.io/2016/08/05/office文件的iOS-UTI支持/</id>
+    <published>2016-08-05T10:45:24.000Z</published>
+    <updated>2016-08-05T11:01:41.000Z</updated>
+    
+    <content type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件格式&lt;/th&gt;
+&lt;th&gt;UTI Types&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;  doc&lt;/td&gt;
+&lt;td&gt;com.microsoft.word.doc&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  docx&lt;/td&gt;
+&lt;td&gt;org.openxmlformats.wordprocessingml.document&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  ppt&lt;/td&gt;
+&lt;td&gt;com.microsoft.powerpoint.ppt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  pptx&lt;/td&gt;
+&lt;td&gt;org.openxmlformats.presentationml.presentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  xls&lt;/td&gt;
+&lt;td&gt;com.microsoft.excel.xls&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;  xlsx&lt;/td&gt;
+&lt;td&gt;org.openxmlformats.spreadsheetml.sheet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;但是仅仅是这样是不够的，以 &lt;code&gt;.docx&lt;/code&gt; 格式为例，还需要增加 &lt;code&gt;CFBundleTypeRole&lt;/code&gt; 和 &lt;code&gt;LSHandlerRank&lt;/code&gt; 两个键值。&lt;/p&gt;
+&lt;p&gt;以 &lt;code&gt;.docx&lt;/code&gt; 设置 &lt;code&gt;info.plist&lt;/code&gt; 的 &lt;code&gt;Source Code&lt;/code&gt; 代码举例&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;dict&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;key&amp;gt;CFBundleTypeName&amp;lt;/key&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;string&amp;gt;Microsoft Word 2003 XML document&amp;lt;/string&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;key&amp;gt;CFBundleTypeRole&amp;lt;/key&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;string&amp;gt;Viewer&amp;lt;/string&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;key&amp;gt;LSHandlerRank&amp;lt;/key&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;string&amp;gt;Alternate&amp;lt;/string&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;key&amp;gt;LSItemContentTypes&amp;lt;/key&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;array&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;lt;string&amp;gt;org.openxmlformats.wordprocessingml.document&amp;lt;/string&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;/array&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/14523848/6613238&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Stack Overflow&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apple documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件格式&lt;/th&gt;
+&lt;th&gt;UTI Types&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;  doc&lt;/td&gt;
+&lt;td&gt;com.microsoft.word.doc&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+
+    
+    </summary>
+    
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
+    
+    
+      <category term="UTI" scheme="https://chengluffy.github.io/tags/UTI/"/>
+    
+      <category term=".doc" scheme="https://chengluffy.github.io/tags/doc/"/>
+    
+      <category term=".docx" scheme="https://chengluffy.github.io/tags/docx/"/>
+    
+      <category term=".ppt" scheme="https://chengluffy.github.io/tags/ppt/"/>
+    
+      <category term=".pptx" scheme="https://chengluffy.github.io/tags/pptx/"/>
+    
+      <category term=".xls" scheme="https://chengluffy.github.io/tags/xls/"/>
+    
+      <category term=".xlsx" scheme="https://chengluffy.github.io/tags/xlsx/"/>
+    
+  </entry>
   
   <entry>
     <title>JPFPSStatus源码学习</title>

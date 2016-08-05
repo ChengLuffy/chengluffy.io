@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title><![CDATA[office文件的iOS-UTI支持]]></title>
+      <url>https://chengluffy.github.io/2016/08/05/office%E6%96%87%E4%BB%B6%E7%9A%84iOS-UTI%E6%94%AF%E6%8C%81/</url>
+      <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th>文件格式</th>
+<th>UTI Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>  doc</td>
+<td>com.microsoft.word.doc</td>
+</tr>
+<tr>
+<td>  docx</td>
+<td>org.openxmlformats.wordprocessingml.document</td>
+</tr>
+<tr>
+<td>  ppt</td>
+<td>com.microsoft.powerpoint.ppt</td>
+</tr>
+<tr>
+<td>  pptx</td>
+<td>org.openxmlformats.presentationml.presentation</td>
+</tr>
+<tr>
+<td>  xls</td>
+<td>com.microsoft.excel.xls</td>
+</tr>
+<tr>
+<td>  xlsx</td>
+<td>org.openxmlformats.spreadsheetml.sheet</td>
+</tr>
+</tbody>
+</table>
+<p>但是仅仅是这样是不够的，以 <code>.docx</code> 格式为例，还需要增加 <code>CFBundleTypeRole</code> 和 <code>LSHandlerRank</code> 两个键值。</p>
+<p>以 <code>.docx</code> 设置 <code>info.plist</code> 的 <code>Source Code</code> 代码举例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;CFBundleTypeName&lt;/key&gt;</div><div class="line">    &lt;string&gt;Microsoft Word 2003 XML document&lt;/string&gt;</div><div class="line">    &lt;key&gt;CFBundleTypeRole&lt;/key&gt;</div><div class="line">    &lt;string&gt;Viewer&lt;/string&gt;</div><div class="line">    &lt;key&gt;LSHandlerRank&lt;/key&gt;</div><div class="line">    &lt;string&gt;Alternate&lt;/string&gt;</div><div class="line">    &lt;key&gt;LSItemContentTypes&lt;/key&gt;</div><div class="line">    &lt;array&gt;</div><div class="line">        &lt;string&gt;org.openxmlformats.wordprocessingml.document&lt;/string&gt;</div><div class="line">    &lt;/array&gt;</div><div class="line">&lt;/dict&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="http://stackoverflow.com/a/14523848/6613238" target="_blank" rel="external">Stack Overflow</a><br><a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html" target="_blank" rel="external">Apple documentation</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JPFPSStatus源码学习]]></title>
       <url>https://chengluffy.github.io/2016/07/28/JPFPSStatus%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p><code>iOS</code> 调试程序时 <code>FPS</code> 作为反应 <strong>UI</strong> 是否流畅的指标，一般的 <strong>60</strong> 的 <code>FPS</code> 值时， 程序界面就可以正常流畅地显示，而大型的运算处理等都会降低 <code>FPS</code> 值造成 <strong>UI</strong> 卡顿。如何优化程序逻辑以达到提升 <code>FPS</code> 值的目的不在本次的学习范围内，只是在开发过程中有用到 <a href="https://github.com/joggerplus/JPFPSStatus" target="_blank" rel="external">JPFPSStatus</a>，代码量不多，学习下。<br><a id="more"></a></p>
