@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="成璐飞, iOS" />
+  <meta name="keywords" content="IBAnimatable,转场动画,Explode," />
 
 
 
@@ -88,15 +88,16 @@
 
 
 
-<meta name="description" content="天道酬勤/Heaven rewards the diligent.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="败寇路飞.field">
-<meta property="og:url" content="https://chengluffy.github.io/tags/docx/index.html">
+<meta name="description" content="阅读源码后可以发现，和一般自定义转场动画一致，新建继承 NSObject 子类，遵守 UIViewControllerAnimatedTransitioning 协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IBAnimatable转场动画－Explode学习">
+<meta property="og:url" content="https://chengluffy.github.io/2016/08/06/IBAnimatable转场动画－Explode学习/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
-<meta property="og:description" content="天道酬勤/Heaven rewards the diligent.">
+<meta property="og:description" content="阅读源码后可以发现，和一般自定义转场动画一致，新建继承 NSObject 子类，遵守 UIViewControllerAnimatedTransitioning 协议。">
+<meta property="og:updated_time" content="2016-08-06T11:41:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="败寇路飞.field">
-<meta name="twitter:description" content="天道酬勤/Heaven rewards the diligent.">
+<meta name="twitter:title" content="IBAnimatable转场动画－Explode学习">
+<meta name="twitter:description" content="阅读源码后可以发现，和一般自定义转场动画一致，新建继承 NSObject 子类，遵守 UIViewControllerAnimatedTransitioning 协议。">
 
 
 
@@ -117,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="https://chengluffy.github.io/tags/docx/"/>
+  <link rel="canonical" href="https://chengluffy.github.io/2016/08/06/IBAnimatable转场动画－Explode学习/"/>
 
-  <title> 标签: .docx | 败寇路飞.field </title>
+  <title> IBAnimatable转场动画－Explode学习 | 败寇路飞.field </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +160,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,46 +271,175 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        .docx
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IBAnimatable转场动画－Explode学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T18:33:06+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOSDev/" itemprop="url" rel="index">
+                    <span itemprop="name">iOSDev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/IBAnimatable转场动画－Explode学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/IBAnimatable转场动画－Explode学习/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/06/IBAnimatable转场动画－Explode学习/" class="leancloud_visitors" data-flag-title="IBAnimatable转场动画－Explode学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>阅读源码后可以发现，和一般自定义转场动画一致，新建继承 <code>NSObject</code> 子类，遵守 <code>UIViewControllerAnimatedTransitioning</code> 协议。</p>
+<a id="more"></a>
+<p>实现两个代理方法:</p>
+<ul>
+<li><p>返回动画持续时间代理:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -&gt; NSTimeInterval &#123;</div><div class="line">        return 0.75</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>自定义动画代理:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func animateTransition(transitionContext: UIViewControllerContextTransitioning) &#123;    </div><div class="line">      // 自定义动画函数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参数 <code>transitionContext</code> 可以可以通过 <code>func viewForKey(key: String) -&gt; UIView?</code> / <code>public func viewControllerForKey(key: String) -&gt; UIViewController?</code> 取出转场动画的对应 <code>fromView/toView</code> / <code>formViewController/toViewController</code> 对应的 <code>key</code> 值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">viewForKey:</div><div class="line">UITransitionContextFromViewKey</div><div class="line">UITransitionContextToViewKey</div><div class="line"></div><div class="line">viewControllerForKey:</div><div class="line">UITransitionContextFromViewControllerKey</div><div class="line">UITransitionContextToViewControllerKey</div></pre></td></tr></table></figure>
+<p>在 <code>Explode</code> 动画中主要在于屏幕快照的获取以及快照的区域分剪，核心代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 获取 fromView 的快照</div><div class="line">let fromViewSnapshot = fromView.snapshotViewAfterScreenUpdates(false)</div><div class="line"></div><div class="line">        // 将快照剪切成小块加到 containerView 上</div><div class="line">        for x in 0.0.stride(to: Double(size.width), by: Double(size.width / xFactor)) &#123;</div><div class="line">            for y in 0.0.stride(to: Double(size.height), by: Double(size.height / yFactor)) &#123;</div><div class="line">                let snapshotRegion = CGRect(x: CGFloat(x), y: CGFloat(y), width: size.width / xFactor, height: size.height / yFactor)</div><div class="line"></div><div class="line">                // 按所给区域获得快照的小块</div><div class="line">                let snapshot = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)</div><div class="line">                // 主要是设置位置</div><div class="line">                snapshot.frame = snapshotRegion</div><div class="line">                // 将拼成的 fromView 快照加到 containerView的最顶层</div><div class="line">                containerView.addSubview(snapshot)</div><div class="line">                snapshots.append(snapshot)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">// 将 fromView 隐藏</div><div class="line">containerView.sendSubviewToBack(fromView)</div></pre></td></tr></table></figure></p>
+<p>剩下的就是对 每一个小块的动画处理，并在动画结束后调用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ransitionContext.completeTransition(!transitionContext.transitionWasCancelled())</div></pre></td></tr></table></figure></p>
+<p>这都很简单，难的是如何结合手势使用，这是最值得学习的地方，理解不深，可以 <strong>clone</strong> <a href="https://github.com/IBAnimatable/IBAnimatable" title="Github" target="_blank" rel="external">源码</a> 学习。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/08/05/office文件的iOS-UTI支持/" itemprop="url">
-              
-                <span itemprop="name">office文件的iOS-UTI支持</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-05T18:45:24+08:00"
-              content="2016-08-05" >
-          08-05
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IBAnimatable/" rel="tag">#IBAnimatable</a>
+          
+            <a href="/tags/转场动画/" rel="tag">#转场动画</a>
+          
+            <a href="/tags/Explode/" rel="tag">#Explode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/05/office文件的iOS-UTI支持/" rel="next" title="office文件的iOS-UTI支持">
+                <i class="fa fa-chevron-left"></i> office文件的iOS-UTI支持
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -317,6 +447,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/06/IBAnimatable转场动画－Explode学习/"
+           data-title="IBAnimatable转场动画－Explode学习" data-url="https://chengluffy.github.io/2016/08/06/IBAnimatable转场动画－Explode学习/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -336,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/luffy.jpg"
@@ -416,6 +563,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -512,6 +670,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-08-05T11:01:41.000Z</updated>
+  <updated>2016-08-06T11:41:29.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IBAnimatable转场动画－Explode学习</title>
+    <link href="https://chengluffy.github.io/2016/08/06/IBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB%EF%BC%8DExplode%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://chengluffy.github.io/2016/08/06/IBAnimatable转场动画－Explode学习/</id>
+    <published>2016-08-06T10:33:06.000Z</published>
+    <updated>2016-08-06T11:41:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;阅读源码后可以发现，和一般自定义转场动画一致，新建继承 &lt;code&gt;NSObject&lt;/code&gt; 子类，遵守 &lt;code&gt;UIViewControllerAnimatedTransitioning&lt;/code&gt; 协议。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;实现两个代理方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;返回动画持续时间代理:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -&amp;gt; NSTimeInterval &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        return 0.75&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;自定义动画代理:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;func animateTransition(transitionContext: UIViewControllerContextTransitioning) &amp;#123;    &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      // 自定义动画函数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参数 &lt;code&gt;transitionContext&lt;/code&gt; 可以可以通过 &lt;code&gt;func viewForKey(key: String) -&amp;gt; UIView?&lt;/code&gt; / &lt;code&gt;public func viewControllerForKey(key: String) -&amp;gt; UIViewController?&lt;/code&gt; 取出转场动画的对应 &lt;code&gt;fromView/toView&lt;/code&gt; / &lt;code&gt;formViewController/toViewController&lt;/code&gt; 对应的 &lt;code&gt;key&lt;/code&gt; 值:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;viewForKey:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;UITransitionContextFromViewKey&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;UITransitionContextToViewKey&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;viewControllerForKey:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;UITransitionContextFromViewControllerKey&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;UITransitionContextToViewControllerKey&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在 &lt;code&gt;Explode&lt;/code&gt; 动画中主要在于屏幕快照的获取以及快照的区域分剪，核心代码:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;// 获取 fromView 的快照&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;let fromViewSnapshot = fromView.snapshotViewAfterScreenUpdates(false)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        // 将快照剪切成小块加到 containerView 上&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        for x in 0.0.stride(to: Double(size.width), by: Double(size.width / xFactor)) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            for y in 0.0.stride(to: Double(size.height), by: Double(size.height / yFactor)) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                let snapshotRegion = CGRect(x: CGFloat(x), y: CGFloat(y), width: size.width / xFactor, height: size.height / yFactor)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                // 按所给区域获得快照的小块&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                let snapshot = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                // 主要是设置位置&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                snapshot.frame = snapshotRegion&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                // 将拼成的 fromView 快照加到 containerView的最顶层&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                containerView.addSubview(snapshot)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                snapshots.append(snapshot)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 将 fromView 隐藏&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;containerView.sendSubviewToBack(fromView)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;剩下的就是对 每一个小块的动画处理，并在动画结束后调用:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ransitionContext.completeTransition(!transitionContext.transitionWasCancelled())&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这都很简单，难的是如何结合手势使用，这是最值得学习的地方，理解不深，可以 &lt;strong&gt;clone&lt;/strong&gt; &lt;a href=&quot;https://github.com/IBAnimatable/IBAnimatable&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;源码&lt;/a&gt; 学习。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;阅读源码后可以发现，和一般自定义转场动画一致，新建继承 &lt;code&gt;NSObject&lt;/code&gt; 子类，遵守 &lt;code&gt;UIViewControllerAnimatedTransitioning&lt;/code&gt; 协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
+    
+    
+      <category term="IBAnimatable" scheme="https://chengluffy.github.io/tags/IBAnimatable/"/>
+    
+      <category term="转场动画" scheme="https://chengluffy.github.io/tags/%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="Explode" scheme="https://chengluffy.github.io/tags/Explode/"/>
+    
+  </entry>
   
   <entry>
     <title>office文件的iOS-UTI支持</title>
