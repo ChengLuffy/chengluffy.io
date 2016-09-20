@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="成璐飞, iOS" />
+  <meta name="keywords" content="Carthage," />
 
 
 
@@ -88,15 +88,18 @@
 
 
 
-<meta name="description" content="天道酬勤/Heaven rewards the diligent.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="败寇路飞.field">
-<meta property="og:url" content="https://chengluffy.github.io/categories/工程/index.html">
+<meta name="description" content="最近使用 Xcode8 适配 iOS10 ，CocoaPods 暴露出很多问题，于是在新版本中尝试使用 Carthage 进行包管理，这里仅记录使用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Carthage使用">
+<meta property="og:url" content="https://chengluffy.github.io/2016/09/20/Carthage使用/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
-<meta property="og:description" content="天道酬勤/Heaven rewards the diligent.">
+<meta property="og:description" content="最近使用 Xcode8 适配 iOS10 ，CocoaPods 暴露出很多问题，于是在新版本中尝试使用 Carthage 进行包管理，这里仅记录使用方法。">
+<meta property="og:image" content="https://chengluffy.github.io/img/carthage目录.png">
+<meta property="og:updated_time" content="2016-09-20T02:59:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="败寇路飞.field">
-<meta name="twitter:description" content="天道酬勤/Heaven rewards the diligent.">
+<meta name="twitter:title" content="Carthage使用">
+<meta name="twitter:description" content="最近使用 Xcode8 适配 iOS10 ，CocoaPods 暴露出很多问题，于是在新版本中尝试使用 Carthage 进行包管理，这里仅记录使用方法。">
+<meta name="twitter:image" content="https://chengluffy.github.io/img/carthage目录.png">
 
 
 
@@ -117,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="https://chengluffy.github.io/categories/工程/"/>
+  <link rel="canonical" href="https://chengluffy.github.io/2016/09/20/Carthage使用/"/>
 
-  <title> 分类: 工程 | 败寇路飞.field </title>
+  <title> Carthage使用 | 败寇路飞.field </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +162,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,47 +273,193 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        工程
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Carthage使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T10:09:09+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOSDev/" itemprop="url" rel="index">
+                    <span itemprop="name">iOSDev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/Carthage使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/Carthage使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/20/Carthage使用/" class="leancloud_visitors" data-flag-title="Carthage使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>最近使用 <code>Xcode8</code> 适配 <code>iOS10</code> ，<code>CocoaPods</code> 暴露出很多问题，于是在新版本中尝试使用 <code>Carthage</code> 进行包管理，这里仅记录使用方法。</p>
+<a id="more"></a>
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法:"></a>安装方法:</h2><ul>
+<li>官方给出了 <code>Homebrew</code> 的<a href="https://github.com/Carthage/Carthage#installing-carthage" target="_blank" rel="external">安装方法</a>，不过有一句要注意:</li>
+</ul>
+<blockquote>
+<p>Alternatively only on Xcode 7.x, you can use Homebrew and install the carthage tool on your system simply by running brew update and brew install carthage.</p>
+</blockquote>
+<p>基于上述，我们采用直接下载安装 <a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage.pkg</a>.</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h2><p>和 <code>CocoaPods</code> 不同的时我没有找到类似 <code>pod search xxx</code> 的搜索方法，目前只有在 <strong>Github</strong> 的库主页找到相应的版本号。</p>
+<ol>
+<li><code>cd</code> 到项目目录下。</li>
+<li><code>vim Cartfile</code></li>
+<li><p>以 <code>Alamofire 4.0</code> 为例，写入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github &quot;Alamofire/Alamofire&quot; ~&gt; 4.0</div></pre></td></tr></table></figure>
+<p> 保存退出。</p>
+</li>
+<li>运行 <code>carthage update --platform ios</code>。 <code>--platform ios</code> 可以免除等待编译可能有的 <code>OS X</code> <code>tvOS</code>包的等待时间。</li>
+<li><p>没有错误的话基本上目录结构如图，多说一句，在我运行 <code>update</code> 命令是有很多和 <code>Xcode7</code> 插件相关的警告 <strong>log</strong> 信息，我选择到 <code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/</code> 目录下删除所有插件。</p>
+<p> <img src="/img/carthage目录.png" alt=""></p>
+<blockquote>
+<p>Cartfile：文件用来标注你需要哪些依赖库，对应版本或者 Git 分支（需要提交到 Git）。</p>
+<p>Cartfile.resolved：文件用来跟踪项目当前所用的依赖版本号，为了保持多端开发一致（需要提交到 Git）。</p>
+<p>Carthage：文件夹用来存放依赖库的源文件和编译后的文件(不需要提交到 Git，可以修改.gitignore文件，增加忽略 Carthage 文件夹就行了。</p>
+</blockquote>
+</li>
+<li><p>设置Xcode自动搜索Framework的目录</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Target—&gt;Build Setting—&gt;Framework Search Path—&gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS＂</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加编译的额外脚本</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Target—&gt;Build Phases —&gt;”+”—&gt;New Run Script Phase—&gt;添加脚本＂/usr/local/bin/carthage copy-frameworks＂</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Input Files—&gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS/库名.framework＂</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>这样就可以在项目哪正常使用了。管理版本和删除更改也很方便，推荐使用。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/02/编程日记/" itemprop="url">
-              
-                <span itemprop="name">怪蜀黍的编程日记</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-02T00:30:08+08:00"
-              content="2016-07-02" >
-          07-02
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Carthage/" rel="tag">#Carthage</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/根据view生成图片的笔记/" rel="next" title="根据view生成图片的笔记">
+                <i class="fa fa-chevron-left"></i> 根据view生成图片的笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -318,6 +467,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/20/Carthage使用/"
+           data-title="Carthage使用" data-url="https://chengluffy.github.io/2016/09/20/Carthage使用/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -337,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/luffy.jpg"
@@ -417,6 +583,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装方法"><span class="nav-number">1.</span> <span class="nav-text">安装方法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法:</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -513,6 +690,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

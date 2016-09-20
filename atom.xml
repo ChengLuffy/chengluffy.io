@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-08-15T14:23:05.000Z</updated>
+  <updated>2016-09-20T02:59:47.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Carthage使用</title>
+    <link href="https://chengluffy.github.io/2016/09/20/Carthage%E4%BD%BF%E7%94%A8/"/>
+    <id>https://chengluffy.github.io/2016/09/20/Carthage使用/</id>
+    <published>2016-09-20T02:09:09.000Z</published>
+    <updated>2016-09-20T02:59:47.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近使用 &lt;code&gt;Xcode8&lt;/code&gt; 适配 &lt;code&gt;iOS10&lt;/code&gt; ，&lt;code&gt;CocoaPods&lt;/code&gt; 暴露出很多问题，于是在新版本中尝试使用 &lt;code&gt;Carthage&lt;/code&gt; 进行包管理，这里仅记录使用方法。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;安装方法&quot;&gt;&lt;a href=&quot;#安装方法&quot; class=&quot;headerlink&quot; title=&quot;安装方法:&quot;&gt;&lt;/a&gt;安装方法:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;官方给出了 &lt;code&gt;Homebrew&lt;/code&gt; 的&lt;a href=&quot;https://github.com/Carthage/Carthage#installing-carthage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装方法&lt;/a&gt;，不过有一句要注意:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alternatively only on Xcode 7.x, you can use Homebrew and install the carthage tool on your system simply by running brew update and brew install carthage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;基于上述，我们采用直接下载安装 &lt;a href=&quot;https://github.com/Carthage/Carthage/releases&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Carthage.pkg&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法:&quot;&gt;&lt;/a&gt;使用方法:&lt;/h2&gt;&lt;p&gt;和 &lt;code&gt;CocoaPods&lt;/code&gt; 不同的时我没有找到类似 &lt;code&gt;pod search xxx&lt;/code&gt; 的搜索方法，目前只有在 &lt;strong&gt;Github&lt;/strong&gt; 的库主页找到相应的版本号。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;cd&lt;/code&gt; 到项目目录下。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vim Cartfile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;以 &lt;code&gt;Alamofire 4.0&lt;/code&gt; 为例，写入&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;github &amp;quot;Alamofire/Alamofire&amp;quot; ~&amp;gt; 4.0&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 保存退出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;运行 &lt;code&gt;carthage update --platform ios&lt;/code&gt;。 &lt;code&gt;--platform ios&lt;/code&gt; 可以免除等待编译可能有的 &lt;code&gt;OS X&lt;/code&gt; &lt;code&gt;tvOS&lt;/code&gt;包的等待时间。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;没有错误的话基本上目录结构如图，多说一句，在我运行 &lt;code&gt;update&lt;/code&gt; 命令是有很多和 &lt;code&gt;Xcode7&lt;/code&gt; 插件相关的警告 &lt;strong&gt;log&lt;/strong&gt; 信息，我选择到 &lt;code&gt;~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/&lt;/code&gt; 目录下删除所有插件。&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;/img/carthage目录.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cartfile：文件用来标注你需要哪些依赖库，对应版本或者 Git 分支（需要提交到 Git）。&lt;/p&gt;
+&lt;p&gt;Cartfile.resolved：文件用来跟踪项目当前所用的依赖版本号，为了保持多端开发一致（需要提交到 Git）。&lt;/p&gt;
+&lt;p&gt;Carthage：文件夹用来存放依赖库的源文件和编译后的文件(不需要提交到 Git，可以修改.gitignore文件，增加忽略 Carthage 文件夹就行了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置Xcode自动搜索Framework的目录&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Target—&amp;gt;Build Setting—&amp;gt;Framework Search Path—&amp;gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS＂&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;添加编译的额外脚本&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Target—&amp;gt;Build Phases —&amp;gt;”+”—&amp;gt;New Run Script Phase—&amp;gt;添加脚本＂/usr/local/bin/carthage copy-frameworks＂&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;添加文件&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Input Files—&amp;gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS/库名.framework＂&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;这样就可以在项目哪正常使用了。管理版本和删除更改也很方便，推荐使用。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近使用 &lt;code&gt;Xcode8&lt;/code&gt; 适配 &lt;code&gt;iOS10&lt;/code&gt; ，&lt;code&gt;CocoaPods&lt;/code&gt; 暴露出很多问题，于是在新版本中尝试使用 &lt;code&gt;Carthage&lt;/code&gt; 进行包管理，这里仅记录使用方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
+    
+    
+      <category term="Carthage" scheme="https://chengluffy.github.io/tags/Carthage/"/>
+    
+  </entry>
   
   <entry>
     <title>根据view生成图片的笔记</title>

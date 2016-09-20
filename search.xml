@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title><![CDATA[Carthage使用]]></title>
+      <url>https://chengluffy.github.io/2016/09/20/Carthage%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>最近使用 <code>Xcode8</code> 适配 <code>iOS10</code> ，<code>CocoaPods</code> 暴露出很多问题，于是在新版本中尝试使用 <code>Carthage</code> 进行包管理，这里仅记录使用方法。</p>
+<a id="more"></a>
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法:"></a>安装方法:</h2><ul>
+<li>官方给出了 <code>Homebrew</code> 的<a href="https://github.com/Carthage/Carthage#installing-carthage" target="_blank" rel="external">安装方法</a>，不过有一句要注意:</li>
+</ul>
+<blockquote>
+<p>Alternatively only on Xcode 7.x, you can use Homebrew and install the carthage tool on your system simply by running brew update and brew install carthage.</p>
+</blockquote>
+<p>基于上述，我们采用直接下载安装 <a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage.pkg</a>.</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h2><p>和 <code>CocoaPods</code> 不同的时我没有找到类似 <code>pod search xxx</code> 的搜索方法，目前只有在 <strong>Github</strong> 的库主页找到相应的版本号。</p>
+<ol>
+<li><code>cd</code> 到项目目录下。</li>
+<li><code>vim Cartfile</code></li>
+<li><p>以 <code>Alamofire 4.0</code> 为例，写入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github &quot;Alamofire/Alamofire&quot; ~&gt; 4.0</div></pre></td></tr></table></figure>
+<p> 保存退出。</p>
+</li>
+<li>运行 <code>carthage update --platform ios</code>。 <code>--platform ios</code> 可以免除等待编译可能有的 <code>OS X</code> <code>tvOS</code>包的等待时间。</li>
+<li><p>没有错误的话基本上目录结构如图，多说一句，在我运行 <code>update</code> 命令是有很多和 <code>Xcode7</code> 插件相关的警告 <strong>log</strong> 信息，我选择到 <code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/</code> 目录下删除所有插件。</p>
+<p> <img src="/img/carthage目录.png" alt=""></p>
+<blockquote>
+<p>Cartfile：文件用来标注你需要哪些依赖库，对应版本或者 Git 分支（需要提交到 Git）。</p>
+<p>Cartfile.resolved：文件用来跟踪项目当前所用的依赖版本号，为了保持多端开发一致（需要提交到 Git）。</p>
+<p>Carthage：文件夹用来存放依赖库的源文件和编译后的文件(不需要提交到 Git，可以修改.gitignore文件，增加忽略 Carthage 文件夹就行了。</p>
+</blockquote>
+</li>
+<li><p>设置Xcode自动搜索Framework的目录</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Target—&gt;Build Setting—&gt;Framework Search Path—&gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS＂</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加编译的额外脚本</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Target—&gt;Build Phases —&gt;”+”—&gt;New Run Script Phase—&gt;添加脚本＂/usr/local/bin/carthage copy-frameworks＂</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Input Files—&gt;添加路径＂$(SRCROOT)/Carthage/Build/iOS/库名.framework＂</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>这样就可以在项目哪正常使用了。管理版本和删除更改也很方便，推荐使用。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[根据view生成图片的笔记]]></title>
       <url>https://chengluffy.github.io/2016/08/15/%E6%A0%B9%E6%8D%AEview%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E7%9A%84%E7%AC%94%E8%AE%B0/</url>
       <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIGraphicsBeginImageContext(view.frame.size)</div><div class="line">let context = UIGraphicsGetCurrentContext()</div><div class="line">self.view.layer.renderInContext(context!)</div><div class="line">let image = UIGraphicsGetImageFromCurrentImageContext()</div><div class="line">UIGraphicsEndImageContext()</div></pre></td></tr></table></figure>]]></content>
