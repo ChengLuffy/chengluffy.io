@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[iOS开发参考整理]]></title>
+      <url>https://chengluffy.github.io/2016/10/10/iOS%E5%BC%80%E5%8F%91%E5%8F%82%E8%80%83%E6%95%B4%E7%90%86/</url>
+      <content type="html"><![CDATA[<ol>
+<li>以 <code>alertSheet</code> 的方式进行图片选取， <a href="https://github.com/d0ping/DBAttachmentPickerController" title="Github" target="_blank" rel="external">DBAttachmentPickerController</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Xcode8模拟器调试疯狂输出日志问题]]></title>
       <url>https://chengluffy.github.io/2016/09/22/Xcode8%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%95%E7%96%AF%E7%8B%82%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p><code>product-&gt;Scheme-&gt;Edit Scheme</code></p>

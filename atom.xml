@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chengluffy.github.io/"/>
-  <updated>2016-09-24T03:52:41.000Z</updated>
+  <updated>2016-10-10T05:52:38.000Z</updated>
   <id>https://chengluffy.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发参考整理</title>
+    <link href="https://chengluffy.github.io/2016/10/10/iOS%E5%BC%80%E5%8F%91%E5%8F%82%E8%80%83%E6%95%B4%E7%90%86/"/>
+    <id>https://chengluffy.github.io/2016/10/10/iOS开发参考整理/</id>
+    <published>2016-10-10T05:49:40.000Z</published>
+    <updated>2016-10-10T05:52:38.000Z</updated>
+    
+    <content type="html">&lt;ol&gt;
+&lt;li&gt;以 &lt;code&gt;alertSheet&lt;/code&gt; 的方式进行图片选取， &lt;a href=&quot;https://github.com/d0ping/DBAttachmentPickerController&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DBAttachmentPickerController&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;以 &lt;code&gt;alertSheet&lt;/code&gt; 的方式进行图片选取， &lt;a href=&quot;https://github.com/d0ping/DBAttachmentPickerController&quot; title=&quot;Github&quot; target=&quot;_blank
+    
+    </summary>
+    
+      <category term="iOSDev" scheme="https://chengluffy.github.io/categories/iOSDev/"/>
+    
+    
+      <category term="参考资料" scheme="https://chengluffy.github.io/tags/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Xcode8模拟器调试疯狂输出日志问题</title>
