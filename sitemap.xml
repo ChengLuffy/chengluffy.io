@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chengluffy.github.io/2016/09/20/Carthage%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2016-10-12T06:26:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/</loc>
     
     <lastmod>2016-10-12T05:06:43.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://chengluffy.github.io/2016/09/21/%E4%B8%80%E7%A7%8D%E6%AF%94%E8%BE%83%E5%A5%BD%E7%8E%A9%E7%9A%84addSubview%E5%86%99%E6%B3%95/</loc>
     
     <lastmod>2016-09-21T12:00:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chengluffy.github.io/2016/09/20/Carthage%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2016-09-20T02:59:47.000Z</lastmod>
     
   </url>
   

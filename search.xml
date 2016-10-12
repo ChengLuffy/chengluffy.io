@@ -74,6 +74,7 @@
 </ol>
 <hr>
 <p>这样就可以在项目哪正常使用了。管理版本和删除更改也很方便，推荐使用。</p>
+<p>10.12 更新：<br>发现 <code>Carthage</code> 编译的 <code>.framework</code> 文件不支持 <code>@IBInspectable</code> 和 <code>@IBDesignable</code> ……有点蛋疼。 在使用类似 <code>IBAnimatable</code> 类似框架时，无法在 <code>storyboard</code>/<code>xib</code> 进行操作。</p>
 ]]></content>
     </entry>
     

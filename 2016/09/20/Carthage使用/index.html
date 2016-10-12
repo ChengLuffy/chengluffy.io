@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="败寇路飞.field">
 <meta property="og:description" content="最近使用 Xcode8 适配 iOS10 ，CocoaPods 暴露出很多问题，于是在新版本中尝试使用 Carthage 进行包管理，这里仅记录使用方法。">
 <meta property="og:image" content="https://chengluffy.github.io/img/carthage目录.png">
-<meta property="og:updated_time" content="2016-09-20T02:59:47.000Z">
+<meta property="og:updated_time" content="2016-10-12T06:26:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Carthage使用">
 <meta name="twitter:description" content="最近使用 Xcode8 适配 iOS10 ，CocoaPods 暴露出很多问题，于是在新版本中尝试使用 Carthage 进行包管理，这里仅记录使用方法。">
@@ -407,6 +407,7 @@
 </ol>
 <hr>
 <p>这样就可以在项目哪正常使用了。管理版本和删除更改也很方便，推荐使用。</p>
+<p>10.12 更新：<br>发现 <code>Carthage</code> 编译的 <code>.framework</code> 文件不支持 <code>@IBInspectable</code> 和 <code>@IBDesignable</code> ……有点蛋疼。 在使用类似 <code>IBAnimatable</code> 类似框架时，无法在 <code>storyboard</code>/<code>xib</code> 进行操作。</p>
 
       
     </div>
