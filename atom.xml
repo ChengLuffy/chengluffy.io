@@ -514,9 +514,9 @@
     <link href="https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/"/>
     <id>https://chengluffy.github.io/2016/07/02/编程日记/</id>
     <published>2016-07-01T16:30:08.000Z</published>
-    <updated>2016-07-30T05:37:43.000Z</updated>
+    <updated>2016-10-19T06:00:40.000Z</updated>
     
-    <content type="html">&lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
+    <content type="html">&lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;table&gt;
@@ -527,6 +527,26 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/SpechtLite.Config&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SpechtLite.Config&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;fork 自 &lt;a href=&quot;https://github.com/DomYY/SpechtLite.Config&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DomYY/SpechtLite.Config&lt;/a&gt; ，规则根据自己喜好修改。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/SS-R-QRCodeAnalysis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SS-R-QRCodeAnalysis&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;macOS 端对 &lt;code&gt;ss/ssr&lt;/code&gt; 二维码进行解析。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/LoveFreshBeen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LoveFreshBeen&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;对 &lt;a href=&quot;https://github.com/ZhongTaoTian/LoveFreshBeen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZhongTaoTian/LoveFreshBeen&lt;/a&gt; 进行 &lt;code&gt;swift3&lt;/code&gt; 迁移。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/AnimatedTransitioningExplode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AnimatedTransitioningExplode&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;/2016/08/06/IBAnimatable转场动画－Explode学习/&quot;&gt;IBAnimatable转场动画－Explode学习&lt;/a&gt;。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFreeForMac&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ShadowsocksFreeForMac&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;macOS 插件，简单学习。&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt; &lt;a href=&quot;https://github.com/ChengLuffy/FPSStatusSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FPSStatusSwift&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;FPS&lt;/code&gt; 实时显示的swift实现， &lt;a href=&quot;/2016/07/28/JPFPSStatus源码学习/&quot;&gt;Blog&lt;/a&gt; 。&lt;/td&gt;
@@ -552,10 +572,6 @@
 &lt;td&gt;&lt;code&gt;Object-C&lt;/code&gt;实现触摸或输入给予星评，实习工作时的项目需要。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RefreshControl-ImageViewAnimation&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;Swift&lt;/code&gt;学习初实践。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;  &lt;a href=&quot;https://github.com/ChengLuffy/AnimationForShoppingCart&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AnimationForShoppingCart&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;学习iOS开发是对CA动画的实践项目，&lt;code&gt;Object-C&lt;/code&gt;代码，同时制作了&lt;code&gt;cocoaPods&lt;/code&gt;轮子。&lt;/td&gt;
 &lt;/tr&gt;
@@ -565,7 +581,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!&lt;/p&gt;
+      &lt;p&gt;一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/img/Dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>

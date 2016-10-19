@@ -267,7 +267,7 @@
     <entry>
       <title><![CDATA[怪蜀黍的编程日记]]></title>
       <url>https://chengluffy.github.io/2016/07/02/%E7%BC%96%E7%A8%8B%E6%97%A5%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<p>一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在－_－!</p>
+      <content type="html"><![CDATA[<p>一个并不是要成为海贼王的路飞，希望能在代码中找到自己的意义所在</p>
 <p><img src="/img/Dream.png" alt=""></p>
 <a id="more"></a>
 <table>
@@ -278,6 +278,26 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/SpechtLite.Config" target="_blank" rel="external">SpechtLite.Config</a></td>
+<td>fork 自 <a href="https://github.com/DomYY/SpechtLite.Config" target="_blank" rel="external">DomYY/SpechtLite.Config</a> ，规则根据自己喜好修改。</td>
+</tr>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/SS-R-QRCodeAnalysis" target="_blank" rel="external">SS-R-QRCodeAnalysis</a></td>
+<td>macOS 端对 <code>ss/ssr</code> 二维码进行解析。</td>
+</tr>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/LoveFreshBeen" target="_blank" rel="external">LoveFreshBeen</a></td>
+<td>对 <a href="https://github.com/ZhongTaoTian/LoveFreshBeen" target="_blank" rel="external">ZhongTaoTian/LoveFreshBeen</a> 进行 <code>swift3</code> 迁移。</td>
+</tr>
+<tr>
+<td> <a href="https://github.com/ChengLuffy/AnimatedTransitioningExplode" target="_blank" rel="external">AnimatedTransitioningExplode</a></td>
+<td><a href="/2016/08/06/IBAnimatable转场动画－Explode学习/">IBAnimatable转场动画－Explode学习</a>。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ChengLuffy/ShadowsocksFreeForMac" target="_blank" rel="external">ShadowsocksFreeForMac</a></td>
+<td>macOS 插件，简单学习。</td>
+</tr>
 <tr>
 <td> <a href="https://github.com/ChengLuffy/FPSStatusSwift" target="_blank" rel="external">FPSStatusSwift</a></td>
 <td><code>FPS</code> 实时显示的swift实现， <a href="/2016/07/28/JPFPSStatus源码学习/">Blog</a> 。</td>
@@ -301,10 +321,6 @@
 <tr>
 <td>  <a href="https://github.com/ChengLuffy/StarsForEvaluation" target="_blank" rel="external">StarsForEvaluation</a></td>
 <td><code>Object-C</code>实现触摸或输入给予星评，实习工作时的项目需要。</td>
-</tr>
-<tr>
-<td>  <a href="https://github.com/ChengLuffy/RefreshControl-ImageViewAnimation" target="_blank" rel="external">RefreshControl-ImageViewAnimation</a></td>
-<td><code>Swift</code>学习初实践。</td>
 </tr>
 <tr>
 <td>  <a href="https://github.com/ChengLuffy/AnimationForShoppingCart" target="_blank" rel="external">AnimationForShoppingCart</a></td>
