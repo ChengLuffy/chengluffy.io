@@ -49,7 +49,7 @@
     <link href="https://chengluffy.github.io/2016/10/10/iOS%E5%BC%80%E5%8F%91%E5%8F%82%E8%80%83%E6%95%B4%E7%90%86/"/>
     <id>https://chengluffy.github.io/2016/10/10/iOS开发参考整理/</id>
     <published>2016-10-10T05:49:40.000Z</published>
-    <updated>2016-10-20T03:21:50.000Z</updated>
+    <updated>2016-10-21T03:30:27.000Z</updated>
     
     <content type="html">&lt;ol&gt;
 &lt;li&gt;以 &lt;code&gt;alertSheet&lt;/code&gt; 的方式进行图片选取： &lt;a href=&quot;https://github.com/d0ping/DBAttachmentPickerController&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DBAttachmentPickerController&lt;/a&gt;;&lt;/li&gt;
@@ -58,7 +58,9 @@
 &lt;li&gt;&lt;code&gt;iOS 10&lt;/code&gt; 之后，通过 &lt;strong&gt;Today Widget&lt;/strong&gt; 跳转系统设置页，&lt;a href=&quot;https://github.com/cyanzhong/app-tutorials/blob/master/prefs.md&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cyanzhong/app-tutorials&lt;/a&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/huanz/surge-hosts&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;kbd&gt;&lt;code&gt;Surge-Hosts&lt;/code&gt;&lt;/kbd&gt;&lt;/a&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/schickling/Device.swift&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swift 查看设备类型&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vsouza/awesome-ios&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;awesome-ios&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vsouza/awesome-ios&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;awesome-ios&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/xiaofei86/XFAssistiveTouch&quot; title=&quot;GitHub&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;模仿系统小白点实现&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Desgard/DGExpandMenuButton&quot; title=&quot;GitHub&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;瓜神出品的按钮菜单动画&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     
@@ -453,7 +455,7 @@
     <link href="https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
     <id>https://chengluffy.github.io/2016/07/07/代码配置IBAnimatable转场动画/</id>
     <published>2016-07-07T13:02:25.000Z</published>
-    <updated>2016-10-21T02:32:00.000Z</updated>
+    <updated>2016-10-21T02:32:19.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/JakeLin/IBAnimatable&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IBAnimatable&lt;/a&gt; 是由 &lt;a href=&quot;https://github.com/JakeLin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JakeLin&lt;/a&gt; 在Github上开源的动画开源库，在学习 &lt;code&gt;Swift&lt;/code&gt; 时曾经在练手项目 &lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ShadowsocksFree&lt;/a&gt; 中学习使用过，其最吸引我的是可以在 &lt;code&gt;StoryBoard&lt;/code&gt; 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 &lt;code&gt;API&lt;/code&gt; 介绍，最后通过阅读源码实现效果，总结如下。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
