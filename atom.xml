@@ -453,7 +453,7 @@
     <link href="https://chengluffy.github.io/2016/07/07/%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AEIBAnimatable%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
     <id>https://chengluffy.github.io/2016/07/07/代码配置IBAnimatable转场动画/</id>
     <published>2016-07-07T13:02:25.000Z</published>
-    <updated>2016-10-12T05:06:43.000Z</updated>
+    <updated>2016-10-21T02:29:09.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/JakeLin/IBAnimatable&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IBAnimatable&lt;/a&gt; 是由 &lt;a href=&quot;https://github.com/JakeLin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JakeLin&lt;/a&gt; 在Github上开源的动画开源库，在学习 &lt;code&gt;Swift&lt;/code&gt; 时曾经在练手项目 &lt;a href=&quot;https://github.com/ChengLuffy/ShadowsocksFree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ShadowsocksFree&lt;/a&gt; 中学习使用过，其最吸引我的是可以在 &lt;code&gt;StoryBoard&lt;/code&gt; 中直接配置转场动画，但是我在项目中一些情境下需要使用代码配置，Github上并没有找到类似的 &lt;code&gt;API&lt;/code&gt; 介绍，最后通过阅读源码实现效果，总结如下。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -464,6 +464,7 @@
 &lt;p&gt;证明没找错。&lt;br&gt;&lt;code&gt;TransitionPresenterManager&lt;/code&gt; 只有一个方法:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;public func retrievePresenter(transitionAnimationType: TransitionAnimationType, transitionDuration: Duration = defaultTransitionDuration, interactiveGestureType: InteractiveGestureType? = nil) -&amp;gt; TransitionPresenter &amp;#123;）&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;其参数：&lt;code&gt;TransitionAnimationType&lt;/code&gt; 点进去之后可以发现是转场动画的枚举； &lt;code&gt;Duration&lt;/code&gt; 即 &lt;code&gt;NSTimeInterval&lt;/code&gt; 用于设定转场动画时间，默认是  &lt;code&gt;0.75&lt;/code&gt;；&lt;code&gt;InteractiveGestureType&lt;/code&gt; 是对目的 &lt;code&gt;VC&lt;/code&gt; 返回源 &lt;code&gt;VC&lt;/code&gt; 的手势枚举，根据所选转场动画的不同手势的参数：&lt;code&gt;GestureDirection&lt;/code&gt; 所选择的枚举值也不同。&lt;/p&gt;
 &lt;p&gt;所以当我们有代码配置 &lt;code&gt;IBAnimatable&lt;/code&gt; 转场动画需要时只要设置目的 &lt;code&gt;VC&lt;/code&gt; 的 &lt;code&gt;transitioningDelegate&lt;/code&gt; ，用 &lt;code&gt;TransitionPresenterManager&lt;/code&gt;的 &lt;code&gt;retrievePresenter&lt;/code&gt; 方法配置动画选项。之后用源 &lt;code&gt;VC&lt;/code&gt; 模态化推出目的 &lt;code&gt;VC&lt;/code&gt; 就可以。&lt;/p&gt;
+&lt;h2 id=&quot;16-10-21&quot;&gt;&lt;a href=&quot;#16-10-21&quot; class=&quot;headerlink&quot; title=&quot;16.10.21&quot;&gt;&lt;/a&gt;16.10.21&lt;/h2&gt;&lt;p&gt;需要注意的是每种转场方式的 &lt;code&gt;direction&lt;/code&gt; 参数各自不同，不能随意设置，比如 &lt;code&gt;3.0&lt;/code&gt; 版本 &lt;code&gt;.cards(direction: )&lt;/code&gt; 参数设置，只有 &lt;code&gt;.backward/.forward&lt;/code&gt; 两种形式，设置其他参数 &lt;code&gt;Xcode&lt;/code&gt; 不会报错，但是在运行时会有意想不到的 &lt;strong&gt;bug&lt;/strong&gt;。&lt;/p&gt;
 </content>
     
     <summary type="html">
