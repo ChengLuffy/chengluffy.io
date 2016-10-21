@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="addSubview,iOS 小知识," />
+  <meta name="keywords" content="Carthage," />
 
 
 
@@ -88,19 +88,16 @@
 
 
 
-<meta name="description" content="addSubview 是 iOS 编程中很常见的一个方法，常规的写法是：1234let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))lable.backgroundColor = UIColor.cyanlable.text = &amp;quot;addSubview&amp;quot;addSubview(lable)
-没">
+<meta name="description" content="记录下学习 使自己的 Framework支持 Carthage ，原文链接： Support Carthage for your Swift framework">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一种比较好玩的addSubview写法">
-<meta property="og:url" content="https://chengluffy.github.io/2016/09/21/一种比较好玩的addSubview写法/index.html">
+<meta property="og:title" content="使自己的Framework支持Carthage">
+<meta property="og:url" content="https://chengluffy.github.io/2016/10/21/使自己的Framework支持Carthage/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
-<meta property="og:description" content="addSubview 是 iOS 编程中很常见的一个方法，常规的写法是：1234let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))lable.backgroundColor = UIColor.cyanlable.text = &amp;quot;addSubview&amp;quot;addSubview(lable)
-没">
-<meta property="og:updated_time" content="2016-09-21T12:00:43.000Z">
+<meta property="og:description" content="记录下学习 使自己的 Framework支持 Carthage ，原文链接： Support Carthage for your Swift framework">
+<meta property="og:updated_time" content="2016-10-21T09:11:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一种比较好玩的addSubview写法">
-<meta name="twitter:description" content="addSubview 是 iOS 编程中很常见的一个方法，常规的写法是：1234let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))lable.backgroundColor = UIColor.cyanlable.text = &amp;quot;addSubview&amp;quot;addSubview(lable)
-没">
+<meta name="twitter:title" content="使自己的Framework支持Carthage">
+<meta name="twitter:description" content="记录下学习 使自己的 Framework支持 Carthage ，原文链接： Support Carthage for your Swift framework">
 
 
 
@@ -121,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="https://chengluffy.github.io/2016/09/21/一种比较好玩的addSubview写法/"/>
+  <link rel="canonical" href="https://chengluffy.github.io/2016/10/21/使自己的Framework支持Carthage/"/>
 
-  <title> 一种比较好玩的addSubview写法 | 败寇路飞.field </title>
+  <title> 使自己的Framework支持Carthage | 败寇路飞.field </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +292,7 @@
             
             
               
-                一种比较好玩的addSubview写法
+                使自己的Framework支持Carthage
               
             
           </h1>
@@ -307,8 +304,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-21T19:47:10+08:00" content="2016-09-21">
-              2016-09-21
+            <time itemprop="dateCreated" datetime="2016-10-21T11:45:40+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -337,8 +334,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/21/一种比较好玩的addSubview写法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/一种比较好玩的addSubview写法/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/使自己的Framework支持Carthage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/使自己的Framework支持Carthage/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -348,7 +345,7 @@
 
           
           
-             <span id="/2016/09/21/一种比较好玩的addSubview写法/" class="leancloud_visitors" data-flag-title="一种比较好玩的addSubview写法">
+             <span id="/2016/10/21/使自己的Framework支持Carthage/" class="leancloud_visitors" data-flag-title="使自己的Framework支持Carthage">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -370,10 +367,16 @@
       
 
       
-        <p><code>addSubview</code> 是 <code>iOS</code> 编程中很常见的一个方法，常规的写法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))</div><div class="line">lable.backgroundColor = UIColor.cyan</div><div class="line">lable.text = &quot;addSubview&quot;</div><div class="line">addSubview(lable)</div></pre></td></tr></table></figure></p>
-<p>没有问题，不过当页面 <code>subViews</code> 比较多时有点乱。<br>下面介绍另外一种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">addSubview(&#123;</div><div class="line">            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))</div><div class="line">            label.backgroundColor = UIColor.cyan</div><div class="line">            label.text = &quot;addSubview&quot;</div><div class="line">            return label</div><div class="line">        &#125;())</div></pre></td></tr></table></figure></p>
-<p><code>OC</code> 写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[self.view addSubview:(&#123;</div><div class="line">        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];</div><div class="line">				label.backgroundColor = [UIColor CyanColor];</div><div class="line">        label.text = @&quot;addSubview&quot;;</div><div class="line">        label;</div><div class="line">    &#125;)];</div></pre></td></tr></table></figure></p>
-<p>好处是每个控件的配置集中，一目了然。 <strong>仅作参考。</strong></p>
+        <p>记录下学习 <em>使自己的 <code>Framework</code>支持 <code>Carthage</code></em> ，原文链接： <a href="https://medium.com/@shenghuawu/support-carthage-for-your-swift-framework-f294c691f9ba#.gqeudhs54" title="medium" target="_blank" rel="external">Support Carthage for your Swift framework</a></p>
+<a id="more"></a>
+<ol>
+<li>新建工程，选择 <strong><em>Cocoa Touch Framework</em></strong>；</li>
+<li>在新工程内进行编写自己的代码，使用 <code>open</code> 修饰要暴露的 <code>class、method</code>, 注意确保 <strong>Build Phases</strong> -&gt; <strong>Compile Sources</strong> 内包含你所写的代码文件，也可以把写好的直接加到工程内；</li>
+<li>需要创建演示 <code>demo</code> 的，创建相应的 <code>target</code> ，并便携演示代码文件，在 <strong>Build Phases</strong> -&gt; <strong>Compile Sources</strong> 添加自己的 <code>Framework</code> 的 <code>.swift</code> 文件；</li>
+<li>在 <code>Manage Schemes</code> 内将， <code>framework</code> 以及演示用 <code>target</code> 勾选 <strong>shared</strong>；</li>
+<li>将工程提交到 <code>Github</code>;</li>
+<li>创建 <strong><em>release</em></strong>。</li>
+</ol>
 
       
     </div>
@@ -395,9 +398,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/addSubview/" rel="tag">#addSubview</a>
-          
-            <a href="/tags/iOS-小知识/" rel="tag">#iOS 小知识</a>
+            <a href="/tags/Carthage/" rel="tag">#Carthage</a>
           
         </div>
       
@@ -406,17 +407,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/20/Carthage使用/" rel="next" title="Carthage使用">
-                <i class="fa fa-chevron-left"></i> Carthage使用
+              <a href="/2016/10/17/10-17/" rel="next" title="10.17">
+                <i class="fa fa-chevron-left"></i> 10.17
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/22/Xcode8模拟器调试疯狂输出日志问题/" rel="prev" title="Xcode8模拟器调试疯狂输出日志问题">
-                Xcode8模拟器调试疯狂输出日志问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -442,8 +439,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/21/一种比较好玩的addSubview写法/"
-           data-title="一种比较好玩的addSubview写法" data-url="https://chengluffy.github.io/2016/09/21/一种比较好玩的addSubview写法/">
+      <div class="ds-thread" data-thread-key="2016/10/21/使自己的Framework支持Carthage/"
+           data-title="使自己的Framework支持Carthage" data-url="https://chengluffy.github.io/2016/10/21/使自己的Framework支持Carthage/">
       </div>
     
   </div>

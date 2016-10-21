@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[使自己的Framework支持Carthage]]></title>
+      <url>https://chengluffy.github.io/2016/10/21/%E4%BD%BF%E8%87%AA%E5%B7%B1%E7%9A%84Framework%E6%94%AF%E6%8C%81Carthage/</url>
+      <content type="html"><![CDATA[<p>记录下学习 <em>使自己的 <code>Framework</code>支持 <code>Carthage</code></em> ，原文链接： <a href="https://medium.com/@shenghuawu/support-carthage-for-your-swift-framework-f294c691f9ba#.gqeudhs54" title="medium" target="_blank" rel="external">Support Carthage for your Swift framework</a></p>
+<a id="more"></a>
+<ol>
+<li>新建工程，选择 <strong><em>Cocoa Touch Framework</em></strong>；</li>
+<li>在新工程内进行编写自己的代码，使用 <code>open</code> 修饰要暴露的 <code>class、method</code>, 注意确保 <strong>Build Phases</strong> -&gt; <strong>Compile Sources</strong> 内包含你所写的代码文件，也可以把写好的直接加到工程内；</li>
+<li>需要创建演示 <code>demo</code> 的，创建相应的 <code>target</code> ，并便携演示代码文件，在 <strong>Build Phases</strong> -&gt; <strong>Compile Sources</strong> 添加自己的 <code>Framework</code> 的 <code>.swift</code> 文件；</li>
+<li>在 <code>Manage Schemes</code> 内将， <code>framework</code> 以及演示用 <code>target</code> 勾选 <strong>shared</strong>；</li>
+<li>将工程提交到 <code>Github</code>;</li>
+<li>创建 <strong><em>release</em></strong>。</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[10.17]]></title>
       <url>https://chengluffy.github.io/2016/10/17/10-17/</url>
       <content type="html"><![CDATA[<h2 id="讲下无聊的事情。"><a href="#讲下无聊的事情。" class="headerlink" title="讲下无聊的事情。"></a>讲下无聊的事情。</h2><a id="more"></a>
