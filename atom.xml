@@ -52,7 +52,7 @@
     <link href="https://chengluffy.github.io/2016/10/17/10-17/"/>
     <id>https://chengluffy.github.io/2016/10/17/10-17/</id>
     <published>2016-10-17T02:10:16.000Z</published>
-    <updated>2016-11-07T07:00:29.000Z</updated>
+    <updated>2016-10-17T03:11:45.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;讲下无聊的事情。&quot;&gt;&lt;a href=&quot;#讲下无聊的事情。&quot; class=&quot;headerlink&quot; title=&quot;讲下无聊的事情。&quot;&gt;&lt;/a&gt;讲下无聊的事情。&lt;/h2&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;有人一直教育我，说，不要争这一时，以后会有更好的。&lt;br&gt;有人说，你失去了太阳还有月亮，你失去了月亮还有群星。&lt;br&gt;他们这么说着，以 &lt;strong&gt;为你好&lt;/strong&gt; 的名义对我进行劝说。&lt;/p&gt;
@@ -455,9 +455,9 @@
     <link href="https://chengluffy.github.io/2016/07/22/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%953DTouch/"/>
     <id>https://chengluffy.github.io/2016/07/22/iOS模拟器调试3DTouch/</id>
     <published>2016-07-22T11:58:44.000Z</published>
-    <updated>2016-11-08T01:24:08.000Z</updated>
+    <updated>2016-07-22T16:43:49.000Z</updated>
     
-    <content type="html">&lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;br&gt;11.8 更新，上述基于 &lt;strong&gt;Xcode 7.x&lt;/strong&gt; , &lt;strong&gt;Xcode 8&lt;/strong&gt; 只要选择相应的模拟器就默认启动 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt;。&lt;/p&gt;
+    <content type="html">&lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;3DTouch-Demo: &lt;a href=&quot;https://github.com/ChengLuffy/3DTouch-Demo&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料&lt;/p&gt;
@@ -468,7 +468,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;br&gt;11.8 更新，上述基于 &lt;strong&gt;Xcode
+      &lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;3DTouch-Demo: &lt;a href=
     
     </summary>
     

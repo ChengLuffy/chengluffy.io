@@ -243,7 +243,7 @@
     <entry>
       <title><![CDATA[iOS模拟器调试3DTouch]]></title>
       <url>https://chengluffy.github.io/2016/07/22/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%953DTouch/</url>
-      <content type="html"><![CDATA[<p>模拟器设置栏的 <code>Hardware</code> 内选择 <code>Use Trackpad force for 3D touch</code> 快捷键 <code>^ + com + 3</code><br>11.8 更新，上述基于 <strong>Xcode 7.x</strong> , <strong>Xcode 8</strong> 只要选择相应的模拟器就默认启动 <code>Use Trackpad force for 3D touch</code>。</p>
+      <content type="html"><![CDATA[<p>模拟器设置栏的 <code>Hardware</code> 内选择 <code>Use Trackpad force for 3D touch</code> 快捷键 <code>^ + com + 3</code></p>
 <p>3DTouch-Demo: <a href="https://github.com/ChengLuffy/3DTouch-Demo" title="Github" target="_blank" rel="external">Github</a></p>
 <blockquote>
 <p>参考资料</p>
