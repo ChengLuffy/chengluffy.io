@@ -455,9 +455,9 @@
     <link href="https://chengluffy.github.io/2016/07/22/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8%E8%B0%83%E8%AF%953DTouch/"/>
     <id>https://chengluffy.github.io/2016/07/22/iOS模拟器调试3DTouch/</id>
     <published>2016-07-22T11:58:44.000Z</published>
-    <updated>2016-11-08T01:24:08.000Z</updated>
+    <updated>2016-11-09T06:25:18.000Z</updated>
     
-    <content type="html">&lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;br&gt;11.8 更新，上述基于 &lt;strong&gt;Xcode 7.x&lt;/strong&gt; , &lt;strong&gt;Xcode 8&lt;/strong&gt; 只要选择相应的模拟器就默认启动 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt;。&lt;/p&gt;
+    <content type="html">&lt;p&gt;模拟器设置栏的 &lt;code&gt;Hardware&lt;/code&gt; 内选择 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt; 快捷键 &lt;code&gt;^ + com + 3&lt;/code&gt;&lt;br&gt;11.8 更新，上述基于 &lt;strong&gt;Xcode 7.x&lt;/strong&gt; , &lt;strong&gt;Xcode 8&lt;/strong&gt; 只要选择相应的模拟器就默认启动 &lt;code&gt;Use Trackpad force for 3D touch&lt;/code&gt;。&lt;br&gt;需要 &lt;strong&gt;Force Touch Pad&lt;/strong&gt; 支持。&lt;/p&gt;
 &lt;p&gt;3DTouch-Demo: &lt;a href=&quot;https://github.com/ChengLuffy/3DTouch-Demo&quot; title=&quot;Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料&lt;/p&gt;
