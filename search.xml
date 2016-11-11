@@ -4,6 +4,21 @@
   
     
     <entry>
+      <title><![CDATA[macOS Sierra开启画中画]]></title>
+      <url>https://chengluffy.github.io/2016/11/11/macOS-Sierra%E5%BC%80%E5%90%AF%E7%94%BB%E4%B8%AD%E7%94%BB/</url>
+      <content type="html"><![CDATA[<hr>
+<a id="more"></a>
+<p>画中画功能需要<code>Mac</code> 系统为 <code>sierra</code>，浏览器使用 <strong>Safari</strong> ，网站支持 <strong>HTML</strong> 播放器，比如 <kbd><code>YouTuBe</code> <code>BiliBili</code></kbd>。</p>
+<ol>
+<li>在视频播放窗口右键双击，就会出现 <strong>进入画中画</strong> 的选项，点击后画中画开启。</li>
+<li>随便保存个书签，修改名字为 <strong>画中画</strong> ，再修改地址如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javascript:document.querySelector(%22video%22).webkitSetPresentationMode(%22picture-in-picture%22)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在视频播放时点击书签就可以。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[使自己的Framework支持Carthage]]></title>
       <url>https://chengluffy.github.io/2016/10/21/%E4%BD%BF%E8%87%AA%E5%B7%B1%E7%9A%84Framework%E6%94%AF%E6%8C%81Carthage/</url>
       <content type="html"><![CDATA[<p>记录下学习 <em>使自己的 <code>Framework</code>支持 <code>Carthage</code></em> ，原文链接： <a href="https://medium.com/@shenghuawu/support-carthage-for-your-swift-framework-f294c691f9ba#.gqeudhs54" title="medium" target="_blank" rel="external">Support Carthage for your Swift framework</a></p>
