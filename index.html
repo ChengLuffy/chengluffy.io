@@ -381,7 +381,8 @@
       
         
           
-            <p><code>Build Phases</code> 中选中文件，双击，<code>swift files</code> 添加 <code>-suppress-warnings</code>，<code>C/C++/Objective-C files</code> 添加 <code>-w</code>。</p>
+            <p><code>Build Phases</code> 中选中文件，双击，<code>-w -Xanalyzer -analyzer-disable-all-checks</code>。</p>
+<p>使用 <code>CocoaPods</code> 时可以在 <code>Podfile</code> 中添加 <code>inhibit_all_warnings!</code>。</p>
 
           
         
