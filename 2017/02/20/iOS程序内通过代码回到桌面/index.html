@@ -78,21 +78,24 @@
 
 
 
+  <link rel="alternate" href="/true" title="败寇路飞.field" type="application/atom+xml" />
 
 
 
 
 
-<meta name="description" content="Swift:123456// 进入后台UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)// 结束应用DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &amp;#123;  UIApplication.shar">
+
+<meta name="description" content="Swift: 123456&#x2F;&#x2F; 进入后台UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)&#x2F;&#x2F; 结束应用DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &amp;#123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS程序内通过代码回到桌面">
-<meta property="og:url" content="https://chengluffy.github.io/2017/02/20/iOS程序内通过代码回到桌面/index.html">
+<meta property="og:url" content="https://chengluffy.github.io/2017/02/20/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
-<meta property="og:description" content="Swift:123456// 进入后台UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)// 结束应用DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &amp;#123;  UIApplication.shar">
-<meta property="og:updated_time" content="2019-01-06T06:44:17.000Z">
+<meta property="og:description" content="Swift: 123456&#x2F;&#x2F; 进入后台UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)&#x2F;&#x2F; 结束应用DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &amp;#123">
+<meta property="article:published_time" content="2017-02-19T16:39:51.000Z">
+<meta property="article:modified_time" content="2019-01-06T06:44:17.000Z">
+<meta property="article:author" content="成璐飞">
+<meta property="article:tag" content="iOS程序内回到桌面小技巧">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS程序内通过代码回到桌面">
-<meta name="twitter:description" content="Swift:123456// 进入后台UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)// 结束应用DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &amp;#123;  UIApplication.shar">
 
 
 
@@ -157,7 +160,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -266,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chengluffy.github.io/2017/02/20/iOS程序内通过代码回到桌面/">
+    <link itemprop="mainEntityOfPage" href="https://chengluffy.github.io/2017/02/20/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="成璐飞">
@@ -336,7 +339,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/20/iOS程序内通过代码回到桌面/#comments" itemprop="discussionUrl">
+                <a href="/2017/02/20/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2017/02/20/iOS程序内通过代码回到桌面/" itemprop="commentCount"></span>
                 </a>
@@ -346,7 +349,7 @@
 
           
           
-             <span id="/2017/02/20/iOS程序内通过代码回到桌面/" class="leancloud_visitors" data-flag-title="iOS程序内通过代码回到桌面">
+             <span id="/2017/02/20/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2/" class="leancloud_visitors" data-flag-title="iOS程序内通过代码回到桌面">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -377,7 +380,9 @@
       
 
       
-        <p>Swift:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 进入后台</div><div class="line">UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)</div><div class="line">// 结束应用</div><div class="line">DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &#123;</div><div class="line">  UIApplication.shared.perform(Selector((&quot;terminateWithSuccess&quot;)))</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Swift:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 进入后台</span><br><span class="line">UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)</span><br><span class="line">&#x2F;&#x2F; 结束应用</span><br><span class="line">DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) &#123;</span><br><span class="line">  UIApplication.shared.perform(Selector((&quot;terminateWithSuccess&quot;)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>需要注意的是，单独第一行就可以达到 <strong>有动画回到桌面程序进入后台的目的</strong>，单独第二行 <strong>没有动画回到桌面并终止应用</strong>，两行同时使用可以 <strong>动画回到桌面并终止应用</strong>。 根据需要选择其中一个或两个一起使用。</p>
 <p>在 iOS 12 下，延迟 1.25 秒结束应用不会出问题。</p>
 
@@ -397,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS程序内回到桌面小技巧/" rel="tag"># iOS程序内回到桌面小技巧</a>
+            <a href="/tags/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag"># iOS程序内回到桌面小技巧</a>
           
         </div>
       
@@ -410,7 +415,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/SpechtLite简单使用说明/" rel="next" title="SpechtLite简单使用说明">
+              <a href="/2016/11/29/SpechtLite%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" rel="next" title="SpechtLite简单使用说明">
                 <i class="fa fa-chevron-left"></i> SpechtLite简单使用说明
               </a>
             
@@ -420,7 +425,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/13/快捷方式app简单使用说明/" rel="prev" title="快捷方式app简单使用说明">
+              <a href="/2017/06/13/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8Fapp%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" rel="prev" title="快捷方式app简单使用说明">
                 快捷方式app简单使用说明 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -456,7 +461,7 @@
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div>
@@ -504,7 +509,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +520,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -526,7 +531,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -534,6 +539,13 @@
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/true" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -585,7 +597,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -728,7 +740,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://chengluffy.github.io/2017/02/20/iOS程序内通过代码回到桌面/';
+          this.page.url = 'https://chengluffy.github.io/2017/02/20/iOS%E7%A8%8B%E5%BA%8F%E5%86%85%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81%E5%9B%9E%E5%88%B0%E6%A1%8C%E9%9D%A2/';
           this.page.identifier = '2017/02/20/iOS程序内通过代码回到桌面/';
           this.page.title = 'iOS程序内通过代码回到桌面';
         };

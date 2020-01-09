@@ -78,6 +78,8 @@
 
 
 
+  <link rel="alternate" href="/true" title="败寇路飞.field" type="application/atom+xml" />
+
 
 
 
@@ -86,13 +88,14 @@
 <meta name="description" content="OC:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS数字金额转化成中文大写">
-<meta property="og:url" content="https://chengluffy.github.io/2019/01/11/iOS开发金额中文大写/index.html">
+<meta property="og:url" content="https://chengluffy.github.io/2019/01/11/iOS%E5%BC%80%E5%8F%91%E9%87%91%E9%A2%9D%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/index.html">
 <meta property="og:site_name" content="败寇路飞.field">
 <meta property="og:description" content="OC:">
-<meta property="og:updated_time" content="2019-01-11T06:35:00.000Z">
+<meta property="article:published_time" content="2019-01-11T06:20:56.000Z">
+<meta property="article:modified_time" content="2019-01-11T06:35:00.000Z">
+<meta property="article:author" content="成璐飞">
+<meta property="article:tag" content="中文大写">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS数字金额转化成中文大写">
-<meta name="twitter:description" content="OC:">
 
 
 
@@ -157,7 +160,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -266,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chengluffy.github.io/2019/01/11/iOS开发金额中文大写/">
+    <link itemprop="mainEntityOfPage" href="https://chengluffy.github.io/2019/01/11/iOS%E5%BC%80%E5%8F%91%E9%87%91%E9%A2%9D%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="成璐飞">
@@ -336,7 +339,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/01/11/iOS开发金额中文大写/#comments" itemprop="discussionUrl">
+                <a href="/2019/01/11/iOS%E5%BC%80%E5%8F%91%E9%87%91%E9%A2%9D%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2019/01/11/iOS开发金额中文大写/" itemprop="commentCount"></span>
                 </a>
@@ -346,7 +349,7 @@
 
           
           
-             <span id="/2019/01/11/iOS开发金额中文大写/" class="leancloud_visitors" data-flag-title="iOS数字金额转化成中文大写">
+             <span id="/2019/01/11/iOS%E5%BC%80%E5%8F%91%E9%87%91%E9%A2%9D%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/" class="leancloud_visitors" data-flag-title="iOS数字金额转化成中文大写">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -377,7 +380,9 @@
       
 
       
-        <p>OC:<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> 金额大小写转换</div><div class="line"></div><div class="line"> @param money 金额字符串</div><div class="line"> @return 中文大写金额</div><div class="line"> */</div><div class="line">- (NSString *)digitUppercase:(NSString *)money &#123;</div><div class="line">    NSMutableString *moneyStr = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@&quot;%.2f&quot;,[money doubleValue]]];</div><div class="line">    NSArray *MyScale = @[@&quot;分&quot;, @&quot;角&quot;, @&quot;元&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;万&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;亿&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;兆&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot; ];</div><div class="line">    NSArray *MyBase = @[@&quot;零&quot;, @&quot;壹&quot;, @&quot;贰&quot;, @&quot;叁&quot;, @&quot;肆&quot;, @&quot;伍&quot;, @&quot;陆&quot;, @&quot;柒&quot;, @&quot;捌&quot;, @&quot;玖&quot;];</div><div class="line">    NSMutableString *M=[[NSMutableString alloc] init];</div><div class="line">    [moneyStr deleteCharactersInRange:NSMakeRange([moneyStr rangeOfString:@&quot;.&quot;].location, 1)];</div><div class="line">    for(NSInteger i = moneyStr.length; i &gt; 0 ; i--) &#123;</div><div class="line">        NSInteger MyData = [[moneyStr substringWithRange:NSMakeRange(moneyStr.length-i, 1)] integerValue];</div><div class="line">        if (MyData == 0) &#123;</div><div class="line">            if (![M hasSuffix:@&quot;零&quot;] &amp;&amp; M.length != 0) &#123;</div><div class="line">                [M appendString:@&quot;零&quot;];</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            [M appendString:MyBase[MyData]];</div><div class="line">            if ([[moneyStr substringFromIndex:moneyStr.length-i+1] integerValue] == 0 &amp;&amp; i != 1 &amp;&amp; i != 2) &#123;</div><div class="line">                [M appendString:@&quot;元&quot;];</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            [M appendString:MyScale[i-1]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return M;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>OC:</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> 金额大小写转换</span><br><span class="line"></span><br><span class="line"> @param money 金额字符串</span><br><span class="line"> @return 中文大写金额</span><br><span class="line"> *&#x2F;</span><br><span class="line">- (NSString *)digitUppercase:(NSString *)money &#123;</span><br><span class="line">    NSMutableString *moneyStr &#x3D; [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@&quot;%.2f&quot;,[money doubleValue]]];</span><br><span class="line">    NSArray *MyScale &#x3D; @[@&quot;分&quot;, @&quot;角&quot;, @&quot;元&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;万&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;亿&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot;, @&quot;兆&quot;, @&quot;拾&quot;, @&quot;佰&quot;, @&quot;仟&quot; ];</span><br><span class="line">    NSArray *MyBase &#x3D; @[@&quot;零&quot;, @&quot;壹&quot;, @&quot;贰&quot;, @&quot;叁&quot;, @&quot;肆&quot;, @&quot;伍&quot;, @&quot;陆&quot;, @&quot;柒&quot;, @&quot;捌&quot;, @&quot;玖&quot;];</span><br><span class="line">    NSMutableString *M&#x3D;[[NSMutableString alloc] init];</span><br><span class="line">    [moneyStr deleteCharactersInRange:NSMakeRange([moneyStr rangeOfString:@&quot;.&quot;].location, 1)];</span><br><span class="line">    for(NSInteger i &#x3D; moneyStr.length; i &gt; 0 ; i--) &#123;</span><br><span class="line">        NSInteger MyData &#x3D; [[moneyStr substringWithRange:NSMakeRange(moneyStr.length-i, 1)] integerValue];</span><br><span class="line">        if (MyData &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            if (![M hasSuffix:@&quot;零&quot;] &amp;&amp; M.length !&#x3D; 0) &#123;</span><br><span class="line">                [M appendString:@&quot;零&quot;];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            [M appendString:MyBase[MyData]];</span><br><span class="line">            if ([[moneyStr substringFromIndex:moneyStr.length-i+1] integerValue] &#x3D;&#x3D; 0 &amp;&amp; i !&#x3D; 1 &amp;&amp; i !&#x3D; 2) &#123;</span><br><span class="line">                [M appendString:@&quot;元&quot;];</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            [M appendString:MyScale[i-1]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -395,7 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/中文大写/" rel="tag"># 中文大写</a>
+            <a href="/tags/%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/" rel="tag"># 中文大写</a>
           
         </div>
       
@@ -408,7 +413,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/05/chmod权限笔记/" rel="next" title="chmod权限笔记">
+              <a href="/2019/01/05/chmod%E6%9D%83%E9%99%90%E7%AC%94%E8%AE%B0/" rel="next" title="chmod权限笔记">
                 <i class="fa fa-chevron-left"></i> chmod权限笔记
               </a>
             
@@ -417,6 +422,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/09/%E8%93%9D%E5%B2%B8%E8%AE%A2%E9%98%85%E8%BD%ACSurge%E5%A4%96%E9%83%A8%E4%BB%A3%E7%90%86%E5%88%97%E8%A1%A8%E8%84%9A%E6%9C%AC/" rel="prev" title="蓝岸订阅转Surge外部代理列表脚本">
+                蓝岸订阅转Surge外部代理列表脚本 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -450,7 +459,7 @@
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div>
@@ -498,7 +507,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -509,7 +518,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -520,7 +529,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -528,6 +537,13 @@
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/true" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -579,7 +595,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -722,7 +738,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://chengluffy.github.io/2019/01/11/iOS开发金额中文大写/';
+          this.page.url = 'https://chengluffy.github.io/2019/01/11/iOS%E5%BC%80%E5%8F%91%E9%87%91%E9%A2%9D%E4%B8%AD%E6%96%87%E5%A4%A7%E5%86%99/';
           this.page.identifier = '2019/01/11/iOS开发金额中文大写/';
           this.page.title = 'iOS数字金额转化成中文大写';
         };
